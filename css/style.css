@@ -1,0 +1,14 @@
+body{
+	background:url(../images/w3.jpg) no-repeat center center;
+	background-attachment:fixed;
+	}
+.container{
+	background:#fff;
+	padding:20px;
+	border-radius:10px;
+	box-shadow:0 0 20px #000;
+	}
+	
+	h1,h2,h3{
+		font-weight:bold;
+		}
