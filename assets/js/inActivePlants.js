@@ -32,8 +32,7 @@
             var currentDateTime  = new Date();
             var currentDateTimeInSec = currentDateTime.setSeconds(currentDateTime.getSeconds()-3);
             var singleDeviceLastUpdateInSec = Date.parse(singleDeviceLastUpdate) - 18000000; // Converting UTC GMT time to PST local time by Subtracting 18,000,000 as PST = GMT +5
-            var t =currentDateTimeInSec - 90 * 6000;
-            if(singleDeviceLastUpdateInSec < t){
+            if(singleDeviceLastUpdateInSec < currentDateTimeInSec - 90000){
               if (!singleDeviceData.UnderMintanance){
                 if (document.getElementById(deviceName)){
                   singleDeviceData = data[deviceName];
