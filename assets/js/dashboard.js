@@ -30,10 +30,6 @@
         activeDevices += 1;
         TotalActivePlants.innerText = activeDevices;
       }
-      else {
-        activeDevices -= 1;
-        TotalActivePlants.innerText = activeDevices;
-      }
       if(underMaintananceDevice) {
         totalUnderMaintananceDevices += 1;
         TotalUnderMaintanancePlants.innerText = totalUnderMaintananceDevices;
