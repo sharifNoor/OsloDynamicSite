@@ -56,13 +56,13 @@
               }
               else {
                 if (document.getElementById(deviceName)){
-                  // document.getElementById(deviceName).remove();
+                  document.getElementById(deviceName).remove();
                 }
               }
             } 
             else {
               if (document.getElementById(deviceName)){
-                // document.getElementById(deviceName).remove();
+                document.getElementById(deviceName).remove();
               }
             }
           }
