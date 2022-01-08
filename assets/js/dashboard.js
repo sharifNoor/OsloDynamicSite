@@ -27,7 +27,6 @@ dbRefObject.on('value', snap => {
     var currentDateTimeInSec = currentDateTime.setSeconds(currentDateTime.getSeconds()-3);
     var singleDeviceLastUpdateInSec = Date.parse(singleDeviceLastUpdate) - 18000000;;
     if(singleDeviceLastUpdateInSec > currentDateTimeInSec - 90000){
-      console.log(currentDateTimeInSec)
       activeDevices += 1;
       TotalActivePlants.innerText = activeDevices;
     }
