@@ -31,14 +31,14 @@
             </div>
         </div>
         <div class="col-12 mb-5 text-center"><img src="images/jv-logo.jpg" class="img-fluid border-bottom"> </div>
-        <div id="divvv" class="pt-3 pl-3 pr-3 shadow mb-4">
+        <div id="underMaintananceDevicesDiv" class="pt-3 pl-3 pr-3 shadow mb-4">
             <div class="row ml-3 mr-3" style="justify-content: space-between;">
-                <h4>Add Device</h4>
+                <h4>Devices Under Mintanance</h4>
                 <button class="btn btn-link btn-sm" style="max-width: 50px;" role="button" id="addDeviceBtn">
                     <img src='images/add.png' style="height: 25px;" class="thumbnail img-responsives" alt="" />
                 </button>
             </div>
-            <table class="table" id="table">
+            <table class="table" id="underMaintananceDevicesTable">
                 <thead>
                     <tr>
                         <th scope="col">S.No.</th>
@@ -50,12 +50,29 @@
                 </thead>
             </table>
         </div>
+        <div id="pendingDevicesDiv" class="pt-3 pl-3 pr-3 shadow mb-4">
+            <div class="row ml-3 mr-3" style="justify-content: space-between;">
+                <h4>Devices Pending for Linking</h4>
+                <button class="btn btn-link btn-sm" style="max-width: 50px;" role="button" id="linkDevicesBtn">
+                    <img src='images/add.png' style="height: 25px;" class="thumbnail img-responsives" alt="" />
+                </button>
+            </div>
+            <table class="table" id="pendingDevicestable">
+                <thead>
+                    <tr>
+                        <th scope="col">S.No.</th>
+                        <th scope="col">Device ID</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
         <div id="addDeviceModal" class="modal">
             <!-- Modal content -->
             <div class="modal-content" style="width: 50%; margin-left: 25%; margin-top: 15%;">
                 <div class="modal-header">
                     <h3>Add Device</h3>
-                    <span class="close">&times;</span>
+                    <span id="addDeviceModalClose" class="close">&times;</span>
                 </div>
                 <div class="modal-body">
                     <div class="dropdown">
@@ -77,10 +94,40 @@
                 </div>
             </div>
         </div>
+        <div id="linkDevicesModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content" style="width: 50%; margin-left: 25%; margin-top: 15%;">
+                <div class="modal-header">
+                    <h3>Link Device</h3>
+                    <span id="linkDeviceModalClose" class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="dropdown">
+                        <div class="row ml-3 mr-3" style="justify-content: space-between; width: 100%;">
+                            <!-- <h5>Search Device By ID: </h5> -->
+                            <!-- <input type="text" onclick="search()" placeholder="Search.." id="deviceList" onkeyup="filterFunction()"> -->
+                        </div>
+                        <!-- <div id="DevicesDropdown" class="dropdown-content">  
+                        </div> -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div id="details" class="ml-3 mr-3" style="justify-content: center; width: 100%; display: none;">
+                        <h5>Issue: </h5>
+                        <textarea style="width: 100%;" rows="3" placeholder="Description" required></textarea>
+                        <!-- <button type="submit" onclick="submit(deviceList.value)" style="width: 25%; margin-left: 75%; background-color: cornflowerblue; border-radius: 10px;">Add</button> -->
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
 </body>
 <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-firestore.js"></script>
 <script src="./assets/js/developersPage.js"></script>
 <script src="./assets/js/addDevice.js"></script>
+<script src="./assets/js/linkDevices.js"></script>
+<script src="./assets/js/pendingDevices.js"></script>
 <script src="./assets/js/search.js"></script>
 <script src="./assets/js/delete.js"></script>
 

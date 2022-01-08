@@ -60,7 +60,12 @@
       <h3 class="text-left mb-1 text-secondary"><u>Filter Active Plants</u></h3>
       <div class="row">
         <div class="col-md-3 mb-4">
-          <p>Province:</p>
+          <p>Taluqa:</p>
+          <select id="ddlTaluqa" class="btn btn-outline-dark dropdown-toggle d-grid gap-2 col-12 mx-auto"
+          data-bs-toggle="dropdown" aria-expanded="false" onchange="populateArea(this.value);">
+            <option>Select Taluqa</option>
+          </select>
+          <!-- <p>Province:</p>
           <button type="button" class="btn btn-outline-dark dropdown-toggle d-grid gap-2 col-12 mx-auto"
             data-bs-toggle="dropdown" aria-expanded="false">
             Province
@@ -70,11 +75,15 @@
             <li><a class="dropdown-item" href="#">Punjab</a></li>
             <li><a class="dropdown-item" href="#">Balochistan</a></li>
             <li><a class="dropdown-item" href="#">KPK</a></li>
-          </ul>
+          </ul> -->
         </div>
         <div class="col-md-3 mb-4">
-          <p>Taluqa:</p>
-          <button type="button" class="btn btn-outline-dark dropdown-toggle d-grid gap-2 col-12 mx-auto"
+          <p>Area:</p>
+          <select id="ddlArea" class="btn btn-outline-dark dropdown-toggle d-grid gap-2 col-12 mx-auto"
+          data-bs-toggle="dropdown" aria-expanded="false" onchange="populateDevices(this.value);">
+            <option>Select Area</option>
+          </select>
+          <!-- <button type="button" class="btn btn-outline-dark dropdown-toggle d-grid gap-2 col-12 mx-auto"
             data-bs-toggle="dropdown" aria-expanded="false">
             Taluqa
           </button>
@@ -83,11 +92,15 @@
             <li><a class="dropdown-item" href="#">Islamkot</a></li>
             <li><a class="dropdown-item" href="#">Misri Shah</a></li>
             <li><a class="dropdown-item" href="#">Mitthi Civil Hospital</a></li>
-          </ul>
+          </ul> -->
         </div>
         <div class="col-md-3 mb-4">
-          <p>City:</p>
-          <button type="button" class="btn btn-outline-dark dropdown-toggle d-grid gap-2 col-12 mx-auto"
+          <p>Device Name:</p>
+          <select id="ddlDeviceName" class="btn btn-outline-dark dropdown-toggle d-grid gap-2 col-12 mx-auto"
+          data-bs-toggle="dropdown" aria-expanded="false">
+            <option>Select Device</option>
+          </select>
+          <!-- <button type="button" class="btn btn-outline-dark dropdown-toggle d-grid gap-2 col-12 mx-auto"
             data-bs-toggle="dropdown" aria-expanded="false">
             City
           </button>
@@ -96,7 +109,7 @@
             <li><a class="dropdown-item" href="#">Hyderabad</a></li>
             <li><a class="dropdown-item" href="#">Mitthi</a></li>
             <li><a class="dropdown-item" href="#">Islamkot</a></li>
-          </ul>
+          </ul> -->
         </div>
         <div class="col-md-3 mb-4">
           <p>&#8205</p>
@@ -128,6 +141,7 @@
     </div>
 </body>
 <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-firestore.js"></script>
 <script src="./assets/js/dashboard.js"></script>
 
 </html>

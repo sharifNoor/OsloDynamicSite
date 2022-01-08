@@ -15,8 +15,8 @@
         var data = snap.val();
         var length = Object.keys(data).length;
         // console.log(length);
-        var body = document.getElementById('divvv');
-        var tbl = document.getElementById('table');
+        var body = document.getElementById('underMaintananceDevicesDiv');
+        var tbl = document.getElementById('underMaintananceDevicesTable');
         tbl.style.width = '100%';
         tbl.className = 'table table-hover';
         var tbdy = document.createElement('tbody');
