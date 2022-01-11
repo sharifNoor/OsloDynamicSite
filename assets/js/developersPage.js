@@ -3,7 +3,8 @@
         apiKey: "AIzaSyCaNA5SLdRQHM-KnBKTtHf8km6go9VvlcY",
         authDomain: "firsthundreddevices.firebaseapp.com",
         databaseURL: "https://firsthundreddevices-default-rtdb.firebaseio.com",
-        storageBucket: "firsthundreddevices.appspot.com"
+        storageBucket: "firsthundreddevices.appspot.com",
+        projectId: "firsthundreddevices",
     };
     firebase.initializeApp(config);
     var database = firebase.database();

@@ -1,28 +1,58 @@
-(function () {
-    // Get the modal
-    var modal = document.getElementById("linkDevicesModal");
+const linkDevice = id => e => {
+    e.preventDefault();
+    e.stopPropagation();
 
-    // Get the button that opens the modal
-    var btn = document.getElementById("linkDevicesBtn");
+    var linkmodal = document.getElementById("linkDevicesModal");
+    linkmodal.style.display = "block";
 
     // Get the <span> element that closes the modal
     var span = document.getElementById("linkDeviceModalClose");
+    var DeviceIdDiv = document.getElementById("DeviceID");
+    var DeviceDisplayName = document.getElementById("inputDeviceName");
+    var DeviceTaluqa = document.getElementById("inputTaluqa");
+    var DeviceLocation = document.getElementById("inputLocation");
+    var LinkBtn = document.getElementById("LinkBtn");
+    DeviceIdDiv.innerText = id;
+    var displayName = id.split("_");
+    var fullDisplayName;
+    if(displayName[1].length === 1){
+        fullDisplayName = 'DTS-100' + displayName[1];
+    }
+    else if(displayName[1].length === 2){
+        fullDisplayName = 'DTS-10' + displayName[1];
+    }
+    else if(displayName[1].length === 3){
+        fullDisplayName = 'DTS-1' + displayName[1];
+    }
+    DeviceDisplayName.value = fullDisplayName;
 
-    // When the user clicks the button, open the modal 
-    btn.onclick = function () {
-        modal.style.display = "block";
+    // When Link Button is Clicked!
+    LinkBtn.onclick = function () {
+        let fireStore = firebase.firestore();
+        if (DeviceTaluqa.value && DeviceLocation.value !== null || '') {
+            fireStore.collection("Devices").doc(id).set({
+                DeviceID: id,
+                DeviceName: fullDisplayName,
+                Location: DeviceLocation.value,
+                Taluqa: DeviceTaluqa.value
+
+            }).then(() => {
+                alert(id + ' Linked Successfully!');
+                location.reload();
+            });
+        }
     }
 
     // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {        
-        modal.style.display = "none";
+    span.onclick = function () {
+        linkmodal.style.display = "none";
     }
+
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
-        if (event.target == modal) {
-            inputBox.value = '';
-            modal.style.display = "none";
+        if (event.target == linkmodal) {
+            linkmodal.style.display = "none";
         }
     }
-}());
+}

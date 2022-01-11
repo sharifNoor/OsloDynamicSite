@@ -34,7 +34,7 @@
               } 
               else {
                 div = document.createElement('div');
-                div.id = deviceName;
+                div.id = 'UM' + deviceName;
                 div.className = 'col p-1';
                 outer.appendChild(div);
                 singleDeviceData = data[deviceName];

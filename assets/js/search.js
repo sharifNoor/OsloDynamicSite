@@ -9,11 +9,12 @@ function search() {
         var length = Object.keys(data).length;
         for (var i = 0; i < length; i++) {
             deviceName = Object.keys(data)[i];
-            if (!document.getElementById(deviceName)) {
+            if (!document.getElementById('UM' + deviceName)) {
                 var a = document.createElement('a');
                 a.innerText = deviceName;
                 a.id = deviceName;
                 listOuter.appendChild(a);
+                console.log('deviceName')
                 a.onclick = disp(a.id);
             }           
         }
