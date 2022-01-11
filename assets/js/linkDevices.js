@@ -41,6 +41,9 @@ const linkDevice = id => e => {
                 location.reload();
             });
         }
+        else {
+            alert('Please Provide Proper Details!')
+        }
     }
 
     // When the user clicks on <span> (x), close the modal
