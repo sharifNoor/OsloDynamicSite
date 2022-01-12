@@ -16,8 +16,6 @@ var config = {
   var deviceName;
   var div;
   var singleDeviceData;
-  var singleDeviceFlowRate;
-  var singleDeviceTotalFlow;
   var singleDeviceLastUpdate;
   const dbRefObject = firebase.database().ref();
   dbRefObject.on('value', snap => {
