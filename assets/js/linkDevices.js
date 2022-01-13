@@ -16,6 +16,8 @@ const linkDevice = id => e => {
     var inputNetDeviceNo = document.getElementById("inputNetDeviceNo");
     var inputOperatorName = document.getElementById("inputOperatorName");
     var inputOperatorCellNo = document.getElementById("inputOperatorCellNo");
+    var inputLatitude = document.getElementById("inputLatitude");
+    var inputLongitude = document.getElementById("inputLongitude");
     var LinkBtn = document.getElementById("LinkBtn");
     DeviceIdDiv.innerText = id;
     var displayName = id.split("_");
@@ -44,14 +46,16 @@ const linkDevice = id => e => {
                 NatAvailable: inputNetAvailable.value,
                 NetDeviceNo: inputNetDeviceNo.value,
                 OperatorName: inputOperatorName.value,
-                OperatorCellNo: inputOperatorCellNo.value
+                OperatorCellNo: inputOperatorCellNo.value,
+                Latitude: inputLatitude.value,
+                Longitude: inputLongitude.value
             }).then(() => {
                 alert(id + ' Linked Successfully!');
                 location.reload();
             });
         }
         else {
-            alert('Please Provide Proper Details!')
+            alert('All feilds are required!')
         }
     }
 
