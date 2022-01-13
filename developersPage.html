@@ -78,9 +78,10 @@
                     <div class="dropdown">
                         <div class="row ml-3 mr-3" style="justify-content: space-between; width: 100%;">
                             <h5>Search Device By ID: </h5>
-                            <input  style="width: 50%; margin-right: 30px;" type="text" onclick="search()" placeholder="Search.." id="deviceList" onkeyup="filterFunction()">
+                            <input style="width: 50%; margin-right: 30px;" type="text" onclick="search()"
+                                placeholder="Search.." id="deviceList" onkeyup="filterFunction()">
                         </div>
-                        <div id="DevicesDropdown" class="dropdown-content">  
+                        <div id="DevicesDropdown" class="dropdown-content">
                         </div>
                     </div>
                 </div>
@@ -88,9 +89,10 @@
                     <div id="details" class="ml-3 mr-3" style="justify-content: center; width: 100%; display: none;">
                         <h5>Issue: </h5>
                         <textarea style="width: 100%;" rows="3" placeholder="Description" required></textarea>
-                        <button type="submit" onclick="submit(deviceList.value)" style="width: 25%; margin-left: 75%; background-color: cornflowerblue; border-radius: 10px;">Add</button>
+                        <button type="submit" onclick="submit(deviceList.value)"
+                            style="width: 25%; margin-left: 75%; background-color: cornflowerblue; border-radius: 10px;">Add</button>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -106,56 +108,67 @@
                         <div class="dropdown">
                             <div class="row ml-3 mr-3" style="width: 100%;">
                                 <h5>Device ID: </h5>
-                                <h5  style="width: 75%; margin-left: 8%;" id="DeviceID"></h5>
+                                <h5 style="width: 75%; margin-left: 8%;" id="DeviceID"></h5>
                             </div>
-                            <div id="linkDeviceDiv"> 
+                            <div id="linkDeviceDiv">
                                 <div class="row ml-3 mr-3" style="justify-content: space-between; width: 100%;">
                                     <p>Device Name: </p>
-                                    <input style="width: 75%; margin-right: 30px;" type="text" placeholder="Device Name" id="inputDeviceName" readonly>
+                                    <input style="width: 75%; margin-right: 30px;" type="text" placeholder="Device Name"
+                                        id="inputDeviceName" readonly>
                                 </div>
                                 <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
                                     <p>Taluqa: </p>
-                                    <input style="width: 75%; margin-right: 30px;" type="text" placeholder="Taluqa" id="inputTaluqa">
+                                    <input style="width: 75%; margin-right: 30px;" type="text" placeholder="Taluqa"
+                                        id="inputTaluqa">
                                 </div>
                                 <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
                                     <p>Location: </p>
-                                    <input style="width: 75%; margin-right: 30px;" type="text" placeholder="Location" id="inputLocation">
+                                    <input style="width: 75%; margin-right: 30px;" type="text" placeholder="Location"
+                                        id="inputLocation">
                                 </div>
                                 <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
                                     <p>Plant Capacity: </p>
-                                    <input style="width: 75%; margin-right: 30px;" type="text" placeholder="Capacity in Gal/Day" id="inputCapacity">
+                                    <input style="width: 75%; margin-right: 30px;" type="text"
+                                        placeholder="Capacity in Gal/Day" id="inputCapacity">
                                 </div>
                                 <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
                                     <p>Net Availablity: </p>
-                                    <input style="width: 75%; margin-right: 30px;" type="text" placeholder="Is Internet Available ?" id="inputNetAvailable">
+                                    <input style="width: 75%; margin-right: 30px;" type="text"
+                                        placeholder="Is Internet Available ?" id="inputNetAvailable">
                                 </div>
                                 <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
                                     <p>Internet No: </p>
-                                    <input style="width: 75%; margin-right: 30px;" type="text" placeholder="Internet Device No." id="inputNetDeviceNo">
+                                    <input style="width: 75%; margin-right: 30px;" type="text"
+                                        placeholder="Internet Device No." id="inputNetDeviceNo">
                                 </div>
                                 <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
                                     <p>Operator Name: </p>
-                                    <input style="width: 75%; margin-right: 30px;" type="text" placeholder="Name of Operator / Contact Person" id="inputOperatorName">
+                                    <input style="width: 75%; margin-right: 30px;" type="text"
+                                        placeholder="Name of Operator / Contact Person" id="inputOperatorName">
                                 </div>
                                 <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
                                     <p>Contact No: </p>
-                                    <input style="width: 75%; margin-right: 30px;" type="text" placeholder="Contact No. of Operator" id="inputOperatorCellNo">
+                                    <input style="width: 75%; margin-right: 30px;" type="text"
+                                        placeholder="Contact No. of Operator" id="inputOperatorCellNo">
                                 </div>
                                 <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
                                     <p>Latitude: </p>
-                                    <input style="width: 75%; margin-right: 30px;" type="text" placeholder="Location Latitude" id="inputLatitude">
+                                    <input style="width: 75%; margin-right: 30px;" type="text"
+                                        placeholder="Location Latitude" id="inputLatitude">
                                 </div>
                                 <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
                                     <p>Longitude: </p>
-                                    <input style="width: 75%; margin-right: 30px;" type="text" placeholder="Location Longitude" id="inputLongitude">
+                                    <input style="width: 75%; margin-right: 30px;" type="text"
+                                        placeholder="Location Longitude" id="inputLongitude">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <div id="details" class="ml-3 mr-3" style="justify-content: center; width: 100%;">
-                            <button id="LinkBtn" type="submit" style="width: 25%; margin-left: 75%; background-color: cornflowerblue; border-radius: 10px;">Link</button>
-                        </div>                    
+                            <button id="LinkBtn" type="submit"
+                                style="width: 25%; margin-left: 75%; background-color: cornflowerblue; border-radius: 10px;">Link</button>
+                        </div>
                     </div>
                 </div>
             </div>

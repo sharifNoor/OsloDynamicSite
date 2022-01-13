@@ -17,7 +17,7 @@
 
     </div>
   </div>
-  
+
   <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
 </body>
 
@@ -46,13 +46,13 @@
     var length = Object.keys(data).length;
     for (let i = 0; i < length; i++) {
       deviceName = Object.keys(data)[i];
-      if (document.getElementById(deviceName)){
+      if (document.getElementById(deviceName)) {
         singleDeviceData = data[deviceName];
         singleDeviceFlowRate = singleDeviceData.FlowRateFromFloatSwitch;
         singleDeviceTotalFlow = singleDeviceData.TotalLitresFromFloatSwitch;
         singleDeviceLastUpdate = singleDeviceData.LastUpdate.split("T", 2);
         document.getElementById(deviceName).innerHTML = "<div style='border-radius: 25px' class='p-2 bg-primary bg-gradient text-white'><h3 class='text-center'>" + deviceName + "</h3>" + '<p>Flow Rate: ' + singleDeviceFlowRate + '</p><p>Total Flow: ' + singleDeviceTotalFlow + '</p><p>Last Update: ' + singleDeviceLastUpdate[0] + " " + singleDeviceLastUpdate[1].slice(0, -1) + '</p></div>';
-      } 
+      }
       else {
         div = document.createElement('div');
         div.id = deviceName;

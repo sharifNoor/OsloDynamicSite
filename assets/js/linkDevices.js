@@ -22,13 +22,13 @@ const linkDevice = id => e => {
     DeviceIdDiv.innerText = id;
     var displayName = id.split("_");
     var fullDisplayName;
-    if(displayName[1].length === 1){
+    if (displayName[1].length === 1) {
         fullDisplayName = 'DTS-100' + displayName[1];
     }
-    else if(displayName[1].length === 2){
+    else if (displayName[1].length === 2) {
         fullDisplayName = 'DTS-10' + displayName[1];
     }
-    else if(displayName[1].length === 3){
+    else if (displayName[1].length === 3) {
         fullDisplayName = 'DTS-1' + displayName[1];
     }
     DeviceDisplayName.value = fullDisplayName;
@@ -42,7 +42,7 @@ const linkDevice = id => e => {
                 DeviceName: fullDisplayName,
                 Location: DeviceLocation.value,
                 Taluqa: DeviceTaluqa.value,
-                Capacity: inputCapacity.value, 
+                Capacity: inputCapacity.value,
                 NatAvailable: inputNetAvailable.value,
                 NetDeviceNo: inputNetDeviceNo.value,
                 OperatorName: inputOperatorName.value,

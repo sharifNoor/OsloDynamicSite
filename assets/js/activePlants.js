@@ -1,6 +1,6 @@
 var Firestoredata = [];
-(function() {
-var config = {
+(function () {
+  var config = {
     apiKey: "AIzaSyCaNA5SLdRQHM-KnBKTtHf8km6go9VvlcY",
     authDomain: "firsthundreddevices.firebaseapp.com",
     databaseURL: "https://firsthundreddevices-default-rtdb.firebaseio.com",
@@ -25,13 +25,13 @@ var config = {
       deviceName = Object.keys(data)[i];
       singleDeviceData = data[deviceName];
       singleDeviceLastUpdate = singleDeviceData.LastUpdate;
-      var currentDateTime  = new Date();
-      var currentDateTimeInSec = currentDateTime.setSeconds(currentDateTime.getSeconds()-3);
+      var currentDateTime = new Date();
+      var currentDateTimeInSec = currentDateTime.setSeconds(currentDateTime.getSeconds() - 3);
       var singleDeviceLastUpdateInSec = Date.parse(singleDeviceLastUpdate) - 18000000; // Converting UTC GMT time to PST local time by Subtracting 18,000,000 as PST = GMT +5
-      if(singleDeviceLastUpdateInSec > currentDateTimeInSec - 90){
-        if (document.getElementById(deviceName)){
-          for (var n = 0; n < Firestoredata.length; n++){
-            if (Firestoredata[n].DeviceID === deviceName){
+      if (singleDeviceLastUpdateInSec > currentDateTimeInSec - 90) {
+        if (document.getElementById(deviceName)) {
+          for (var n = 0; n < Firestoredata.length; n++) {
+            if (Firestoredata[n].DeviceID === deviceName) {
               document.getElementById(deviceName).innerHTML = "<div style='border-radius: 25px' class='p-2 bg-primary bg-gradient text-white'><h3 class='text-center'>" + Firestoredata[n].DeviceName + "</h3>" + '<p class="m-0">Taluqa: ' + Firestoredata[n].Taluqa + '</p><p class="m-0">Location: ' + Firestoredata[n].Location + '</p></div>';
             }
           }
@@ -40,10 +40,10 @@ var config = {
           // singleDeviceTotalFlow = singleDeviceData.TotalLitresFromFloatSwitch;
           // singleDeviceLastUpdate = singleDeviceData.LastUpdate.split("T", 2);
           // document.getElementById(deviceName).innerHTML = "<div style='border-radius: 25px' class='p-2 bg-primary bg-gradient text-white'><h3 class='text-center'>" + deviceName + "</h3>" + '<p>Flow Rate: ' + singleDeviceFlowRate + '</p><p>Total Flow: ' + singleDeviceTotalFlow + '</p><p>Last Update: ' + singleDeviceLastUpdate[0] + " " + singleDeviceLastUpdate[1].slice(0, -1) + '</p></div>';
-        } 
+        }
         else {
-          for (var m = 0; m < Firestoredata.length; m++){
-            if (Firestoredata[m].DeviceID === deviceName){
+          for (var m = 0; m < Firestoredata.length; m++) {
+            if (Firestoredata[m].DeviceID === deviceName) {
               div = document.createElement('div');
               div.id = deviceName;
               div.className = 'col p-1';
@@ -63,7 +63,7 @@ var config = {
         }
       }
       else {
-        if (document.getElementById(deviceName)){
+        if (document.getElementById(deviceName)) {
           document.getElementById(deviceName).remove();
         }
       }
@@ -72,14 +72,14 @@ var config = {
 
 }());
 
-function dataFromFirestore () {
+function dataFromFirestore() {
   let fireStore = firebase.firestore();
-  fireStore.collection("Devices").get().then((deviceID)=>{
+  fireStore.collection("Devices").get().then((deviceID) => {
     deviceID.forEach(singleDevice => {
-        var deviceData = singleDevice.data();
-        if(!Firestoredata.includes(deviceData)){
-          Firestoredata.push(deviceData);
-        }
+      var deviceData = singleDevice.data();
+      if (!Firestoredata.includes(deviceData)) {
+        Firestoredata.push(deviceData);
+      }
     });
   });
   console.log(Firestoredata);

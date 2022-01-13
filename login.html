@@ -2,43 +2,44 @@
 <html lang="en">
 
 <head>
-  <title>RO PLANT</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
-    integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
-    crossorigin="anonymous"></script>
+    <title>RO PLANT</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+        crossorigin="anonymous"></script>
 </head>
 
 <body class="pt-5">
-  <div class="container mt-5">
-    <div class="col-12 mb-5 text-center"><img src="images/jv-logo.jpg" class="img-fluid border-bottom"> </div>
-    <div class="d-flex justify-content-center">
-        <div class="w-50 shadow mb-4" style="border-radius: 25px;">
-            <form class="p-3 border border-dark" style="border-radius: 25px;">
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email address</label>
-                    <input type="email" class="form-control emailInput" id="email" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                </div>
-                <div class="mb-3">
-                    <label for="pwd" class="form-label">Password</label>
-                    <input type="password" onchange="StrengthChecker(value)" class="form-control passwordInput" id="pwd">
-                    <span id="StrengthDisp" class="d-none">Weak</span>
-                    
-                </div>
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
-                <button type="button" onClick=login() class="btn btn-primary mb-1">Login</button>
-            </form>
+    <div class="container mt-5">
+        <div class="col-12 mb-5 text-center"><img src="images/jv-logo.jpg" class="img-fluid border-bottom"> </div>
+        <div class="d-flex justify-content-center">
+            <div class="w-50 shadow mb-4" style="border-radius: 25px;">
+                <form class="p-3 border border-dark" style="border-radius: 25px;">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control emailInput" id="email" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pwd" class="form-label">Password</label>
+                        <input type="password" onchange="StrengthChecker(value)" class="form-control passwordInput"
+                            id="pwd">
+                        <span id="StrengthDisp" class="d-none">Weak</span>
+
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <button type="button" onClick=login() class="btn btn-primary mb-1">Login</button>
+                </form>
+            </div>
         </div>
-    </div>
 </body>
 <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
 <script src="./assets/js/main123.js"></script>

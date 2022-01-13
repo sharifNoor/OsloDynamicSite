@@ -39,7 +39,7 @@
                 devicesListRealTime.push(deviceName);
             }
         }
-        for (var i = 0; i < devicesListRealTime.length; i++ ){
+        for (var i = 0; i < devicesListRealTime.length; i++) {
             // console.log(devicesListRealTime.length)
             var body = document.getElementById('pendingDevicesDiv');
             var tbl = document.getElementById('pendingDevicestable');
@@ -50,8 +50,7 @@
             // if (deviceUnderMaintainance){
             if (document.getElementById(devicesListRealTime[i])) { }
             else {
-                if (!devicesListFirestore.includes(devicesListRealTime[i]))
-                {
+                if (!devicesListFirestore.includes(devicesListRealTime[i])) {
                     for (var j = 0; j < 3; j++) {
                         var td = document.createElement('td');
                         td.appendChild(document.createTextNode('\u0020'));

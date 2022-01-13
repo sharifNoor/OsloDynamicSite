@@ -25,8 +25,8 @@
             deviceName = Object.keys(data)[i];
             var tr = document.createElement('tr');
             deviceUnderMaintainance = data[deviceName].UnderMintanance;
-            if (deviceUnderMaintainance){
-                if (document.getElementById(deviceName)){}
+            if (deviceUnderMaintainance) {
+                if (document.getElementById(deviceName)) { }
                 else {
                     for (var j = 0; j < arr.length; j++) {
                         var td = document.createElement('td');
@@ -48,10 +48,10 @@
                             td.style.paddingLeft = '15px'
                         }
                         else if (j === 4) {
-                            td.innerHTML = '<div class="row d-flex justify-content-md-end">' + 
-                            '<button id="abc" class="btn btn-link btn-sm mr-3" style="max-width: 50px;" role="button">' + 
-                            '<img src="images/delete.png" style="max-width:100; height:25px" class="thumbnail img-responsives" alt="">' + 
-                            '</button>' + '</div>';
+                            td.innerHTML = '<div class="row d-flex justify-content-md-end">' +
+                                '<button id="abc" class="btn btn-link btn-sm mr-3" style="max-width: 50px;" role="button">' +
+                                '<img src="images/delete.png" style="max-width:100; height:25px" class="thumbnail img-responsives" alt="">' +
+                                '</button>' + '</div>';
                             td.onclick = del(deviceName);
                         }
                         tr.appendChild(td);

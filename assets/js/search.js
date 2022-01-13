@@ -16,7 +16,7 @@ function search() {
                 listOuter.appendChild(a);
                 console.log('deviceName')
                 a.onclick = disp(a.id);
-            }           
+            }
         }
     });
 }
@@ -30,12 +30,12 @@ const disp = id => e => {
     document.getElementById("details").style.display = 'block';
 };
 
-function submit (id) {
+function submit(id) {
     var modal = document.getElementById("addDeviceModal");
     firebase.database().ref(id).update({
         UnderMintanance: true
     }, (error) => {
-        if(error){
+        if (error) {
             console.log(error);
         }
         else {

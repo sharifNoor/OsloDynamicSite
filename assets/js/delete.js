@@ -4,7 +4,7 @@ const del = id => e => {
     firebase.database().ref(id).update({
         UnderMintanance: false
     }, (error) => {
-        if(error){
+        if (error) {
             console.log(error);
         }
         else {
