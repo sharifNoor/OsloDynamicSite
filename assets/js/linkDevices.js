@@ -11,6 +11,11 @@ const linkDevice = id => e => {
     var DeviceDisplayName = document.getElementById("inputDeviceName");
     var DeviceTaluqa = document.getElementById("inputTaluqa");
     var DeviceLocation = document.getElementById("inputLocation");
+    var inputCapacity = document.getElementById("inputCapacity");
+    var inputNetAvailable = document.getElementById("inputNetAvailable");
+    var inputNetDeviceNo = document.getElementById("inputNetDeviceNo");
+    var inputOperatorName = document.getElementById("inputOperatorName");
+    var inputOperatorCellNo = document.getElementById("inputOperatorCellNo");
     var LinkBtn = document.getElementById("LinkBtn");
     DeviceIdDiv.innerText = id;
     var displayName = id.split("_");
@@ -34,8 +39,12 @@ const linkDevice = id => e => {
                 DeviceID: id,
                 DeviceName: fullDisplayName,
                 Location: DeviceLocation.value,
-                Taluqa: DeviceTaluqa.value
-
+                Taluqa: DeviceTaluqa.value,
+                Capacity: inputCapacity.value, 
+                NatAvailable: inputNetAvailable.value,
+                NetDeviceNo: inputNetDeviceNo.value,
+                OperatorName: inputOperatorName.value,
+                OperatorCellNo: inputOperatorCellNo.value
             }).then(() => {
                 alert(id + ' Linked Successfully!');
                 location.reload();

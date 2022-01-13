@@ -96,29 +96,49 @@
         </div>
         <div id="linkDevicesModal" class="modal">
             <!-- Modal content -->
-            <div class="modal-content" style="width: 50%; margin-left: 25%; margin-top: 5%;">
+            <div class="modal-content" style="width: 50%; margin-left: 25%; max-height: 100%;">
                 <div class="modal-header">
                     <h3>Link Device</h3>
                     <span id="linkDeviceModalClose" class="close">&times;</span>
                 </div>
                 <div class="modal-body">
                     <div class="dropdown">
-                        <div class="row ml-3 mr-3 mt-3" style="width: 100%;">
+                        <div class="row ml-3 mr-3" style="width: 100%;">
                             <h5>Device ID: </h5>
                             <h5  style="width: 75%; margin-left: 6%;" id="DeviceID"></h5>
                         </div>
                         <div id="linkDeviceDiv"> 
-                            <div class="row ml-3 mr-3 mt-3" style="justify-content: space-between; width: 100%;">
+                            <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
                                 <p>Device Name: </p>
                                 <input style="width: 75%; margin-right: 30px;" type="text" placeholder="Device Name" id="inputDeviceName" readonly>
                             </div>
-                            <div class="row ml-3 mr-3 mt-3" style="justify-content: space-between; width: 100%;">
+                            <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
                                 <p>Taluqa: </p>
                                 <input style="width: 75%; margin-right: 30px;" type="text" placeholder="Taluqa" id="inputTaluqa">
                             </div>
-                            <div class="row ml-3 mr-3 mt-3" style="justify-content: space-between; width: 100%;">
+                            <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
                                 <p>Location: </p>
                                 <input style="width: 75%; margin-right: 30px;" type="text" placeholder="Location" id="inputLocation">
+                            </div>
+                            <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
+                                <p>Plant Capacity: </p>
+                                <input style="width: 75%; margin-right: 30px;" type="text" placeholder="Capacity in Gal/Day" id="inputCapacity">
+                            </div>
+                            <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
+                                <p>Net Availablity: </p>
+                                <input style="width: 75%; margin-right: 30px;" type="text" placeholder="Is Internet Available ?" id="inputNetAvailable">
+                            </div>
+                            <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
+                                <p>Internet No: </p>
+                                <input style="width: 75%; margin-right: 30px;" type="text" placeholder="Internet Device No." id="inputNetDeviceNo">
+                            </div>
+                            <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
+                                <p>Operator Name: </p>
+                                <input style="width: 75%; margin-right: 30px;" type="text" placeholder="Name of Operator / Contact Person" id="inputOperatorName">
+                            </div>
+                            <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
+                                <p>Contact No: </p>
+                                <input style="width: 75%; margin-right: 30px;" type="text" placeholder="Contact No. of Operator" id="inputOperatorCellNo">
                             </div>
                         </div>
                     </div>
