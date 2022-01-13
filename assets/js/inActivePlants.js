@@ -38,7 +38,7 @@ var Firestoredata = [];
             if (document.getElementById(deviceNamee)) {
               for (var n = 0; n < Firestoredata.length; n++) {
                 if (Firestoredata[n].DeviceID === deviceNamee) {
-                  document.getElementById(deviceNamee).innerHTML = "<div style='border-radius: 25px' class='p-2 bg-danger bg-gradient text-white'><h3 class='text-center'>" + Firestoredata[n].DeviceName + "</h3>" + '<p class="m-0">Taluqa: ' + Firestoredata[n].Taluqa + '</p><p class="m-0">Location: ' + Firestoredata[n].Location + '</p></div>';
+                  document.getElementById(deviceNamee).innerHTML = "<div style='border-radius: 25px' class='p-2 bg-danger bg-gradient text-white'><h3 class='text-center'>" + Firestoredata[n].DeviceName + "</h3>" + '<p class="m-0">Taluqa: ' + Firestoredata[n].Taluqa + '</p><p class="m-0">Location: ' + Firestoredata[n].Location + '</p><p class="m-0">Operator: ' + Firestoredata[m].OperatorName + '</p><p class="m-0">Contact No: ' + Firestoredata[m].OperatorCellNo + '</p></div>';
                 }
               }
             }
@@ -49,7 +49,7 @@ var Firestoredata = [];
                   div.id = deviceNamee;
                   div.className = 'col p-1';
                   outer.appendChild(div);
-                  div.innerHTML = "<div style='height: 100%; border-radius: 25px' class='p-2 bg-danger bg-gradient text-white'><h3 class='text-center'>" + Firestoredata[m].DeviceName + "</h3>" + '<p class="m-0">Taluqa: ' + Firestoredata[m].Taluqa + '</p><p class="m-0">Location: ' + Firestoredata[m].Location + '</p></div>';
+                  div.innerHTML = "<div style='height: 100%; border-radius: 25px' class='p-2 bg-danger bg-gradient text-white'><h3 class='text-center'>" + Firestoredata[m].DeviceName + "</h3>" + '<p class="m-0">Taluqa: ' + Firestoredata[m].Taluqa + '</p><p class="m-0">Location: ' + Firestoredata[m].Location + '</p><p class="m-0">Operator: ' + Firestoredata[m].OperatorName + '</p><p class="m-0">Contact No: ' + Firestoredata[m].OperatorCellNo + '</p></div>';
                   div.onclick = PlantsDetails(Firestoredata[m])
                 }
               }
