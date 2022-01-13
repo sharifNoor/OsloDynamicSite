@@ -1,3 +1,4 @@
+var ddlData = [];
 var config = {
   apiKey: "AIzaSyCaNA5SLdRQHM-KnBKTtHf8km6go9VvlcY",
   authDomain: "firsthundreddevices.firebaseapp.com",
@@ -21,27 +22,30 @@ dbRefObject.on('value', snap => {
   var totalUnderMaintananceDevices = 0;
   for (let i = 0; i < NoOfDevices; i++) {
     deviceName = Object.keys(data)[i];
-    singleDeviceData = data[deviceName];
-    singleDeviceLastUpdate = singleDeviceData.LastUpdate;
-    var underMaintananceDevice = singleDeviceData.UnderMintanance;
-    var currentDateTime  = new Date();
-    var currentDateTimeInSec = currentDateTime.setSeconds(currentDateTime.getSeconds()-3);
-    var singleDeviceLastUpdateInSec = Date.parse(singleDeviceLastUpdate) - 18000000;;
-    if(singleDeviceLastUpdateInSec > currentDateTimeInSec - 90000){
-      activeDevices += 1;
-      TotalActivePlants.innerText = activeDevices;
+    for (let j = 0; j < ddlData.length; j++){
+      if (ddlData[j].DeviceID === deviceName){
+        singleDeviceData = data[deviceName];
+        singleDeviceLastUpdate = singleDeviceData.LastUpdate;
+        var underMaintananceDevice = singleDeviceData.UnderMintanance;
+        var currentDateTime  = new Date();
+        var currentDateTimeInSec = currentDateTime.setSeconds(currentDateTime.getSeconds()-3);
+        var singleDeviceLastUpdateInSec = Date.parse(singleDeviceLastUpdate) - 18000000;
+        if(singleDeviceLastUpdateInSec > currentDateTimeInSec - 90000){
+          activeDevices += 1;
+          TotalActivePlants.innerText = activeDevices;
+        }
+        if(underMaintananceDevice) {
+            totalUnderMaintananceDevices += 1;
+            TotalUnderMaintanancePlants.innerText = totalUnderMaintananceDevices;
+        }
+        TotalNonActivePlants.innerText = ddlData.length - activeDevices - totalUnderMaintananceDevices;
+      }
     }
-    if(underMaintananceDevice) {
-      totalUnderMaintananceDevices += 1;
-      TotalUnderMaintanancePlants.innerText = totalUnderMaintananceDevices;
-    }
-    TotalNonActivePlants.innerText = NoOfDevices - activeDevices - totalUnderMaintananceDevices;
   }
 });
 //==============================================================================================================
 
 let fireStore = firebase.firestore();
-var ddlData = [];
 var Taluqa = [];
 var AreaLocation = [];
 
