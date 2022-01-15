@@ -46,7 +46,7 @@ var Firestoredata = [];
             if (Firestoredata[m].DeviceID === deviceName) {
               div = document.createElement('div');
               div.id = deviceName;
-              div.className = 'col p-1';
+              div.className = 'col-md-3 p-1';
               outer.appendChild(div);
               div.innerHTML = "<div style='height: 100%; border-radius: 25px' class='p-2 bg-primary bg-gradient text-white'><h3 class='text-center'>" + Firestoredata[m].DeviceName + "</h3>" + '<p class="m-0">Taluqa: ' + Firestoredata[m].Taluqa + '</p><p class="m-0">Location: ' + Firestoredata[m].Location + '</p><p class="m-0">Operator: ' + Firestoredata[m].OperatorName + '</p><p class="m-0">Contact No: ' + Firestoredata[m].OperatorCellNo + '</p></div>';
             }
