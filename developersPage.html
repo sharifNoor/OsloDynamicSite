@@ -38,17 +38,19 @@
                     <img src='images/add.png' style="height: 25px;" class="thumbnail img-responsives" alt="" />
                 </button>
             </div>
-            <table class="table" id="underMaintananceDevicesTable">
-                <thead>
-                    <tr>
-                        <th scope="col">S.No.</th>
-                        <th scope="col">Device ID</th>
-                        <th scope="col">Location</th>
-                        <th scope="col">Issue</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-            </table>
+            <div class="table-responsive">
+                <table class="table" id="underMaintananceDevicesTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">S.No.</th>
+                            <th scope="col">Device ID</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">Issue</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
         <div id="pendingDevicesDiv" class="pt-3 pl-3 pr-3 shadow mb-4">
             <div class="row ml-3 mr-3" style="justify-content: space-between;">
@@ -57,15 +59,17 @@
                     <img src='' style="height: 25px;" class="thumbnail img-responsives" alt="" />
                 </button> -->
             </div>
-            <table class="table" id="pendingDevicestable">
-                <thead>
-                    <tr>
-                        <th scope="col">S.No.</th>
-                        <th scope="col">Device ID</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-            </table>
+            <div class="table-responsive">
+                <table class="table" style="width:100%;" id="pendingDevicestable">
+                    <thead>
+                        <tr>
+                            <th scope="col">S.No.</th>
+                            <th scope="col">Device ID</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
         <div id="addDeviceModal" class="modal">
             <!-- Modal content -->
