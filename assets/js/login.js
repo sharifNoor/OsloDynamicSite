@@ -1,6 +1,15 @@
 function login() {
 	var uname = document.getElementById("email").value;
 	var pwd = document.getElementById("pwd").value;
+	var config = {
+		apiKey: "AIzaSyCaNA5SLdRQHM-KnBKTtHf8km6go9VvlcY",
+		authDomain: "firsthundreddevices.firebaseapp.com",
+		databaseURL: "https://firsthundreddevices-default-rtdb.firebaseio.com",
+		storageBucket: "firsthundreddevices.appspot.com",
+		projectId: "firsthundreddevices"
+	};
+	
+	firebase.initializeApp(config);
 	var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 	if (uname == '') {
 		alert("please enter Email Address.");
@@ -15,10 +24,20 @@ function login() {
 		alert("Password min and max length is 6.");
 	}
 	else {
-		
-		window.location = "./dashboard.html";
+		checkUser(uname, pwd);
+		// window.location = "./dashboard.html";
 	}
 }
+
+const checkUser = async (email, pwd) => {
+	let fireStore = firebase.firestore();
+	await fireStore.collection("Users").get().then((users) => {
+		users.forEach(userCat => {
+			console.log(userCat.data())
+		});
+	});
+}
+
 //Reset Inputfield code.
 function clearFunc() {
 	document.getElementById("email").value = "";
