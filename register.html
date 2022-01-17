@@ -31,18 +31,22 @@
                             id="pwd">
                         <span id="StrengthDisp" class="d-none">Weak</span>
                     </div>
-                    <!-- <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div> -->
-                    <button type="button" onClick=login() class="btn btn-primary mb-1">Login</button>
+                    <div class="mb-3">
+                        <label for="pwd" class="form-label">Confirm Password</label>
+                        <input type="password" onchange="IsSame(value)" class="form-control passwordInput"
+                            id="confirmPwd">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">User Role</label>
+                        <input type="email" class="form-control emailInput" id="email" aria-describedby="emailHelp">
+                    </div>
+                    <button type="button" onClick=login() class="btn btn-primary mb-1">Register</button>
                 </form>
             </div>
         </div>
-    </div>
 </body>
 <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
 <script src="./assets/js/main123.js"></script>
-<script src="./assets/js/login.js"></script>
+<script src="./assets/js/register.js"></script>
 
 </html>

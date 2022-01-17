@@ -15,8 +15,7 @@ function login() {
 		alert("Password min and max length is 6.");
 	}
 	else {
-		
-		window.location = "./dashboard.html";
+		// window.location = "./dashboard.html";
 	}
 }
 //Reset Inputfield code.
@@ -37,7 +36,7 @@ let strengthBadge = document.getElementById('StrengthDisp')
 // The strong and weak password Regex pattern checker
 
 let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})')
-let mediumPassword = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{6,}))')
+let mediumPassword = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))')
 
 function StrengthChecker(PasswordParameter) {
 	// We then change the badge's color and text based on the password strength
