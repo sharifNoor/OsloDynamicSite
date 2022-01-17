@@ -36,7 +36,7 @@
         ContactPerson.innerText = 'Contact Person: ' + deviceData.OperatorName;
         ContactNo.innerText = 'Contact No.: ' + deviceData.OperatorCellNo;
         NatAvailable.innerText = 'Is Internet Available: ' + deviceData.NatAvailable;
-        NetDeviceNo.innerText = 'Internet Device No.: ' + deviceData.NetDeviceNo;
+        NetDeviceNo.innerText = 'Internet Device No: ' + deviceData.NetDeviceNo;
         iframe.src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAlFfikVxbKgBIcrCDFwbdnJJnFzTtkM50&q=" + Latitude + "," + Longitude;
       }
     });
