@@ -36,7 +36,6 @@ const getLocations = async () => {
       }
 
     });
-    console.log('data Loaded')
     //Populate Taluqa dropdown
     var select = document.getElementById("ddlTaluqa");
 

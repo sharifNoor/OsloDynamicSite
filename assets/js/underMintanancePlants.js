@@ -1,4 +1,17 @@
 var Firestoredata = [];
+
+const dataFromFirestore = async () => {
+  let fireStore = firebase.firestore();
+  await fireStore.collection("Devices").get().then((deviceID) => {
+    deviceID.forEach(singleDevice => {
+      var deviceData = singleDevice.data();
+      if (!Firestoredata.includes(deviceData)) {
+        Firestoredata.push(deviceData);
+      }
+    });
+  });
+}
+
 (function () {
   var config = {
     apiKey: "AIzaSyCaNA5SLdRQHM-KnBKTtHf8km6go9VvlcY",
@@ -62,16 +75,3 @@ var Firestoredata = [];
     }
   });
 }());
-
-function dataFromFirestore() {
-  let fireStore = firebase.firestore();
-  fireStore.collection("Devices").get().then((deviceID) => {
-    deviceID.forEach(singleDevice => {
-      var deviceData = singleDevice.data();
-      if (!Firestoredata.includes(deviceData)) {
-        Firestoredata.push(deviceData);
-      }
-    });
-  });
-  console.log(Firestoredata);
-}
