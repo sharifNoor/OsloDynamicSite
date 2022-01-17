@@ -48,6 +48,7 @@ var Firestoredata = [];
               div.id = deviceName;
               div.className = 'col-md-3 p-1 btn';
               outer.appendChild(div);
+              div.onclick = PlantsDetails(Firestoredata[m].DeviceID)
               div.innerHTML = "<div style='height: 100%; border-radius: 25px' class='p-2 bg-primary bg-gradient text-white'><h3 class='text-center'>" + Firestoredata[m].DeviceName + "</h3>" + '<p class="m-0">Taluqa: ' + Firestoredata[m].Taluqa + '</p><p class="m-0">Location: ' + Firestoredata[m].Location + '</p><p class="m-0">Operator: ' + Firestoredata[m].OperatorName + '</p><p class="m-0">Contact No: ' + Firestoredata[m].OperatorCellNo + '</p></div>';
             }
           }
