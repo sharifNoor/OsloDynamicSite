@@ -43,7 +43,7 @@ const linkDevice = id => e => {
                 Location: DeviceLocation.value,
                 Taluqa: DeviceTaluqa.value,
                 Capacity: inputCapacity.value,
-                NatAvailable: inputNetAvailable.value,
+                NetAvailable: inputNetAvailable.value,
                 NetDeviceNo: inputNetDeviceNo.value,
                 OperatorName: inputOperatorName.value,
                 OperatorCellNo: inputOperatorCellNo.value,
