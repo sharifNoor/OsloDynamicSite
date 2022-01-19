@@ -36,7 +36,7 @@ const checkUser = async (email, pwd) => {
 		doc.forEach((user) => {
 			var userData = user.data();
 			if (userData.Password === pwd) {
-				window.location = "./dashboard.html?role=" + userData.Role;
+				window.location = "./dashboard.html?role=" + btoa(userData.Role);
 			}
 			else {
 				alert('Invaild Username or Password!');
