@@ -20,7 +20,7 @@ const dataFromFirestore = async () => {
     storageBucket: "firsthundreddevices.appspot.com",
     projectId: "firsthundreddevices"
   };
-
+  console.log(window.location.search)
   firebase.initializeApp(config);
   dataFromFirestore();
 

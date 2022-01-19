@@ -10,6 +10,7 @@ var config = {
 let params = window.location.search.split('=');
 var dpt = atob(params[1]);
 console.log('User Role ===> ' + dpt);
+console.log(window.location.search)
 firebase.initializeApp(config);
 let fireStore = firebase.firestore();
 var database = firebase.database();
