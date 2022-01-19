@@ -25,17 +25,27 @@ function login() {
 	}
 	else {
 		checkUser(uname, pwd);
-		// window.location = "./dashboard.html";
 	}
 }
 
 const checkUser = async (email, pwd) => {
 	let fireStore = firebase.firestore();
-	await fireStore.collection("Users").get().then((users) => {
-		users.forEach(userCat => {
-			console.log(userCat.data())
+	var docRef = fireStore.collection("Users");
+
+	docRef.where('Email', '==', email).get().then((doc) => {
+		doc.forEach((user) => {
+			var userData = user.data();
+			if (userData.Password === pwd) {
+				window.location = "./dashboard.html?role=" + userData.Role;
+			}
+			else {
+				alert('Invaild Username or Password!');
+			}
 		});
+	}).catch((error) => {
+		console.log("Error Fatching data:", error);
 	});
+	
 }
 
 //Reset Inputfield code.
