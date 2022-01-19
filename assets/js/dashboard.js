@@ -9,7 +9,7 @@ var config = {
 };
 let params = window.location.search.split('=');
 var dpt = atob(params[1]);
-console.log(dpt);
+console.log('User Role ===> ' + dpt);
 firebase.initializeApp(config);
 let fireStore = firebase.firestore();
 var database = firebase.database();
