@@ -21,6 +21,10 @@
             <div class="w-50 shadow mb-4" style="border-radius: 25px;">
                 <form class="p-3 border border-dark" style="border-radius: 25px;">
                     <div class="mb-3">
+                        <label for="name" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
                         <input type="email" class="form-control emailInput" id="email" aria-describedby="emailHelp">
                         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
@@ -33,14 +37,25 @@
                     </div>
                     <div class="mb-3">
                         <label for="pwd" class="form-label">Confirm Password</label>
-                        <input type="password" onchange="IsSame(value)" class="form-control passwordInput"
-                            id="confirmPwd">
+                        <input type="password" class="form-control passwordInput" id="confirmPwd">
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">User Role</label>
-                        <input type="email" class="form-control emailInput" id="email" aria-describedby="emailHelp">
+                        <label for="userRole" class="form-label">User Role</label>
+                        <select id="userRole" class="btn btn-outline-dark dropdown-toggle d-grid gap-2 col-12 mx-auto"
+                          data-bs-toggle="dropdown" aria-expanded="false">
+                          <option>Guest</option>
+                          <option>Admin</option>
+                          <option>Supervisor</option>
+                        </select>
                     </div>
-                    <button type="button" onClick=login() class="btn btn-primary mb-1">Register</button>
+                    <div class="mb-3 d-none">
+                        <label for="usertaluqa" class="form-label">Taluqa</label>
+                        <select id="usertaluqa" class="btn btn-outline-dark dropdown-toggle d-grid gap-2 col-12 mx-auto"
+                          data-bs-toggle="dropdown" aria-expanded="false">
+                          <option>Select User Taluqa</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary mb-1">Register</button>
                 </form>
             </div>
         </div>

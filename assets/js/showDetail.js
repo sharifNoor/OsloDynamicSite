@@ -22,6 +22,7 @@ function showDetail() {
         CurrentFlowRate.innerText = data[DeviceID].FlowRateFromFloatSwitch;
         TotalFlow.innerText = data[DeviceID].TotalLitresFromFloatSwitch;
         DeviceMonitoringDiv.style.display = 'flex';
+        DeviceInactive.style.display = 'none';
       }
       else {
         CurrentFlowRate.innerText = 0;
@@ -30,7 +31,6 @@ function showDetail() {
         DeviceInactive.style.display = 'block';
       }
     });
-
   }
   else {
     alert('Please Select device to monitor!');

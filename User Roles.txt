@@ -1,27 +1,27 @@
-Super Admin (Safdar Bhai):
+Super Admin (Safdar Bhai): Admin
 
 	Full Access
 
-DTS: 
+DTS: Developer
 
 	Full Acess
 
-MSF: 
+MSF: Admin
 
 	Full Access	
 
-TAL:
+TAL: Admin
 
 	Full Access
 
-JAF:
+JAF: Guest
 
 	Active Plants
 
-ADN:
+ADN: Guest
 
 	Active Plants
 
-Supervisors:
+Supervisors: Taluqa
 
 	Taluqa Wise Full Access

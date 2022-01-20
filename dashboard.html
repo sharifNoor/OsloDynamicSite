@@ -17,14 +17,14 @@
 <body class="pt-5">
   <div class="container mt-5">
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-      <a class="btn btn-outline-dark btn-sm" role="button" href="login.html">
+      <a class="btn btn-outline-dark btn-sm" role="button" onclick="logout()">
         Logout
       </a>
     </div>
     <div class="col-12 mb-5 text-center"><img src="images/jv-logo.jpg" class="img-fluid border-bottom"></div>
     <div class="pt-3 pl-3 pr-3 shadow mb-4">
       <div class="row">
-        <div class="col-md-4 mb-4 btn" onclick="window.location='activePlants.html'+window.location.search;">
+        <div class="col-md-4 mb-4 btn" onclick="window.location='activePlants.html';">
           <div class="border border-info text-center bg-info">
             <h3 class="text-white">Active Plants</h3>
           </div>
@@ -32,7 +32,7 @@
             <h2><span id="TotalActivePlants">0</span></h2>
           </div>
         </div>
-        <div class="col-md-4 mb-4 btn" onclick="window.location='inActivePlants.html'+window.location.search;">
+        <div class="col-md-4 mb-4 btn" onclick="window.location='inActivePlants.html';">
           <div class="border border-info text-center bg-danger">
 
             <h3 class="text-white">Non Active Plants</h3>
@@ -41,7 +41,7 @@
             <h2><span id="TotalNonActivePlants">0</span></h2>
           </div>
         </div>
-        <div class="col-md-4 mb-4 btn" onclick="window.location='underMintanancePlants.html'+window.location.search;">
+        <div class="col-md-4 mb-4 btn" onclick="window.location='underMintanancePlants.html';">
           <div class="border border-info text-center bg-warning">
             <h3 class="text-white">Under Maintainance</h3>
           </div>
@@ -115,6 +115,8 @@
 <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-firestore.js"></script>
 <script src="./assets/js/dashboard.js"></script>
+<script src="./assets/js/sS.js"></script>
+<script src="./assets/js/logout.js"></script>
 <script src="./assets/js/showDetail.js"></script>
 
 </html>

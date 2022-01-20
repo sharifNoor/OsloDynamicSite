@@ -1,5 +1,7 @@
 var ddlData = [];
 var dnlData = [];
+var role;
+var userTaluqa;
 var config = {
   apiKey: "AIzaSyCaNA5SLdRQHM-KnBKTtHf8km6go9VvlcY",
   authDomain: "firsthundreddevices.firebaseapp.com",
@@ -7,9 +9,6 @@ var config = {
   storageBucket: "firsthundreddevices.appspot.com",
   projectId: "firsthundreddevices"
 };
-let params = window.location.search.split('=');
-var dpt = atob(params[1]);
-console.log('User Role ===> ' + dpt);
 console.log(window.location.search)
 firebase.initializeApp(config);
 let fireStore = firebase.firestore();
@@ -19,6 +18,9 @@ var Taluqa = [];
 var AreaLocation = [];
 
 const getLocations = async () => {
+  const email = await getSSData('email');
+  role = await getSSData('role');
+  userTaluqa = await getSSData('userTaluqa');
   //Get devices information from firestore and store in arrays.
   await fireStore.collection("Devices").get().then((deviceID) => {
     deviceID.forEach(singleDevice => {
@@ -36,22 +38,44 @@ const getLocations = async () => {
 
       //Populate only dnlist in array
       if (!dnlData.includes(deviceData.DeviceID)) {
-        dnlData.push(deviceData.DeviceID);
+        if(role === 'Admin') {
+          // Full Access
+          dnlData.push(deviceData.DeviceID);
+        }
+        else if (role === 'Guest') {
+          // Active Devices Only
+        }
+        else if (role === 'Supervisor') {
+          // Area Wise Full Access
+          if (userTaluqa === deviceData.Taluqa) {
+            dnlData.push(deviceData.DeviceID);
+          }
+        }
+        else if (role === 'Developer') {
+          // Full Access
+          dnlData.push(deviceData.DeviceID);
+        }
       }
-
     });
     //Populate Taluqa dropdown
     var select = document.getElementById("ddlTaluqa");
 
-    for (var i = 0; i < Taluqa.length; i++) {
-      var opt = Taluqa[i];
+    if (role === 'Supervisor') {
+      var opt = userTaluqa;
       var el = document.createElement("option");
       el.textContent = opt;
       el.value = opt;
       select.appendChild(el);
     }
-
-
+    else {
+      for (var i = 0; i < Taluqa.length; i++) {
+        var opt = Taluqa[i];
+        var el = document.createElement("option");
+        el.textContent = opt;
+        el.value = opt;
+        select.appendChild(el);
+      }   
+    }
   });
   getDataFromRealtime();
 };
@@ -111,7 +135,7 @@ function populateArea(_Taluqa) {
   document.getElementById("ddlDeviceName").innerHTML = "<option>Select Device</option>";
 
   //Fill Area dropdown
-  for (var i = 0; i < filteredArea.length; i++) {
+    for (var i = 0; i < filteredArea.length; i++) {
     var opt = filteredArea[i].Location;
     var el = document.createElement("option");
     el.textContent = opt;

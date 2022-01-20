@@ -27,7 +27,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="pwd" class="form-label">Password</label>
-                        <input type="password" onchange="StrengthChecker(value)" class="form-control passwordInput"
+                        <input type="password" onchange="StrengthChecker(value)" class="form-control passwordInput mb-1"
                             id="pwd">
                         <span id="StrengthDisp" class="d-none">Weak</span>
                     </div>
@@ -35,7 +35,10 @@
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">Check me out</label>
                     </div> -->
-                    <button type="button" onClick=login() class="btn btn-primary mb-1">Login</button>
+                    <div class="m-1 row justify-content-between">
+                        <button type="button" onClick=login() class="btn btn-primary">Login</button>
+                        <button type="button" onclick="window.location='register.html'" class="btn btn-link">Register</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -44,6 +47,7 @@
 <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-firestore.js"></script>
 <script src="./assets/js/main123.js"></script>
+<script src="./assets/js/sS.js"></script>
 <script src="./assets/js/login.js"></script>
 
 </html>

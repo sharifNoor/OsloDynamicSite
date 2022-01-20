@@ -8,8 +8,6 @@ function login() {
 		storageBucket: "firsthundreddevices.appspot.com",
 		projectId: "firsthundreddevices"
 	};
-	
-	firebase.initializeApp(config);
 	var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 	if (uname == '') {
 		alert("please enter Email Address.");
@@ -24,6 +22,7 @@ function login() {
 		alert("Password min and max length is 6.");
 	}
 	else {
+		firebase.initializeApp(config);
 		checkUser(uname, pwd);
 	}
 }
@@ -31,12 +30,15 @@ function login() {
 const checkUser = async (email, pwd) => {
 	let fireStore = firebase.firestore();
 	var docRef = fireStore.collection("Users");
-
 	docRef.where('Email', '==', email).get().then((doc) => {
 		doc.forEach((user) => {
 			var userData = user.data();
 			if (userData.Password === pwd) {
-				window.location = "./dashboard.html?role=" + btoa(userData.Role);
+				setSSData('email', email);
+				setSSData('password', pwd);
+				setSSData('role', userData.Role);
+				setSSData('userTaluqa', userData.Taluqa);
+				window.location = "./dashboard.html";
 			}
 			else {
 				alert('Invaild Username or Password!');
@@ -45,7 +47,6 @@ const checkUser = async (email, pwd) => {
 	}).catch((error) => {
 		console.log("Error Fatching data:", error);
 	});
-	
 }
 
 //Reset Inputfield code.
@@ -60,7 +61,7 @@ let timeout;
 
 // traversing the DOM and getting the input and span using their IDs
 
-let password = document.getElementById('pws')
+let password = document.getElementById('pwd')
 let strengthBadge = document.getElementById('StrengthDisp')
 
 // The strong and weak password Regex pattern checker
