@@ -9,7 +9,6 @@ var config = {
   storageBucket: "firsthundreddevices.appspot.com",
   projectId: "firsthundreddevices"
 };
-console.log(window.location.search)
 firebase.initializeApp(config);
 let fireStore = firebase.firestore();
 var database = firebase.database();

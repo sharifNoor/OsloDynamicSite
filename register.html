@@ -41,27 +41,29 @@
                     </div>
                     <div class="mb-3">
                         <label for="userRole" class="form-label">User Role</label>
-                        <select id="userRole" class="btn btn-outline-dark dropdown-toggle d-grid gap-2 col-12 mx-auto"
+                        <select id="userRole" onchange="userRoleSelect(this.value);" class="btn btn-outline-dark dropdown-toggle d-grid gap-2 col-12 mx-auto"
                           data-bs-toggle="dropdown" aria-expanded="false">
                           <option>Guest</option>
                           <option>Admin</option>
                           <option>Supervisor</option>
                         </select>
                     </div>
-                    <div class="mb-3 d-none">
+                    <div id="userTaluqaDiv" style="display: none;" class="mb-3">
                         <label for="usertaluqa" class="form-label">Taluqa</label>
                         <select id="usertaluqa" class="btn btn-outline-dark dropdown-toggle d-grid gap-2 col-12 mx-auto"
-                          data-bs-toggle="dropdown" aria-expanded="false">
+                        data-bs-toggle="dropdown" aria-expanded="false">
                           <option>Select User Taluqa</option>
                         </select>
                     </div>
-                    <button type="button" class="btn btn-primary mb-1">Register</button>
+                    <button type="button" onclick="Register()" class="btn btn-primary mb-1">Register</button>
                 </form>
             </div>
         </div>
 </body>
 <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-firestore.js"></script>
 <script src="./assets/js/main123.js"></script>
+<script src="./assets/js/sS.js"></script>
 <script src="./assets/js/register.js"></script>
 
 </html>
