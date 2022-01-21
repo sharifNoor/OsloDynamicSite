@@ -39,8 +39,21 @@ function submit(id) {
             console.log(error);
         }
         else {
-            location.reload();
+            updateIssue(id);
         }
+    });
+}
+
+const updateIssue = async (id) => {
+    let fireStore = firebase.firestore();
+	var docRef = fireStore.collection("Devices");
+    var IssueText = document.getElementById('IssueText').value;
+    docRef.doc(id).update({
+        Issue: IssueText
+    }).then(() => {
+        location.reload();
+    }).catch((error) => {
+        alert("Error Occured:", error);
     });
 }
 

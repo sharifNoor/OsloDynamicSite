@@ -1,13 +1,35 @@
+var DevicesFromFirebase = [];
+
+const CheckPermissions = async () => {
+    var role = getSSData('role');
+    if (role !== 'Developer') {
+        clearSSdata();
+        window.location = window.location = "./login.html";
+        alert('Permission Denied!\nOnly Developers are allowed to access this page')
+    }
+    else {
+        var config = {
+            apiKey: "AIzaSyCaNA5SLdRQHM-KnBKTtHf8km6go9VvlcY",
+            authDomain: "firsthundreddevices.firebaseapp.com",
+            databaseURL: "https://firsthundreddevices-default-rtdb.firebaseio.com",
+            storageBucket: "firsthundreddevices.appspot.com",
+            projectId: "firsthundreddevices",
+        };
+        firebase.initializeApp(config);
+        let fireStore = firebase.firestore();
+        await fireStore.collection("Devices").get().then((deviceID) => {
+            deviceID.forEach(singleDevice => {
+                var deviceData = singleDevice.data();
+                if (!DevicesFromFirebase.includes(deviceData)) {
+                    DevicesFromFirebase.push(deviceData);
+                }
+            });
+        });
+    }
+}
+
 (function () {
-    var config = {
-        apiKey: "AIzaSyCaNA5SLdRQHM-KnBKTtHf8km6go9VvlcY",
-        authDomain: "firsthundreddevices.firebaseapp.com",
-        databaseURL: "https://firsthundreddevices-default-rtdb.firebaseio.com",
-        storageBucket: "firsthundreddevices.appspot.com",
-        projectId: "firsthundreddevices",
-    };
-    window.onload = CheckPermissions();
-    firebase.initializeApp(config);
+    window.onload = CheckPermissions();    
     var database = firebase.database();
     var deviceName;
     var deviceUnderMaintainance;
@@ -40,12 +62,20 @@
                             td.style.paddingLeft = '15px'
                         }
                         else if (j === 2) {
-                            td.innerText = 'Location';
-                            td.style.paddingLeft = '15px'
+                            for (var k = 0; k < DevicesFromFirebase.length; k++) {
+                                if (DevicesFromFirebase[k].DeviceID === deviceName){
+                                    td.innerText = DevicesFromFirebase[k].Location;
+                                    td.style.paddingLeft = '15px';
+                                }
+                            }
                         }
                         else if (j === 3) {
-                            td.innerText = 'Issue';
-                            td.style.paddingLeft = '15px'
+                            for (var l = 0; l < DevicesFromFirebase.length; l++) {
+                                if (DevicesFromFirebase[l].DeviceID === deviceName){
+                                    td.innerText = DevicesFromFirebase[l].Issue;
+                                    td.style.paddingLeft = '15px';
+                                }
+                            }
                         }
                         else if (j === 4) {
                             td.innerHTML = '<div class="row d-flex justify-content-md-end">' +
@@ -64,12 +94,3 @@
         body.appendChild(tbl);
     });
 }());
-
-function CheckPermissions () {
-    var role = getSSData('role');
-    if (role !== 'Developer') {
-        clearSSdata();
-        window.location = window.location = "./login.html";
-        alert('Permission Denied!\nOnly Developers are allowed to access this page')
-    }
-}
