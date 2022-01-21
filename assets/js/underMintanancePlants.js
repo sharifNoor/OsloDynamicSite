@@ -1,12 +1,25 @@
 var Firestoredata = [];
+var userTaluqa;
+var userRole;
 
 const dataFromFirestore = async () => {
+  userTaluqa = await getSSData('userTaluqa');
+  userRole = await getSSData('role');
   let fireStore = firebase.firestore();
   await fireStore.collection("Devices").get().then((deviceID) => {
     deviceID.forEach(singleDevice => {
       var deviceData = singleDevice.data();
-      if (!Firestoredata.includes(deviceData)) {
-        Firestoredata.push(deviceData);
+      if (userRole === 'Supervisor'){
+        if (deviceData.Taluqa === userTaluqa) {
+          if (!Firestoredata.includes(deviceData)) {
+            Firestoredata.push(deviceData);
+          }
+        }
+      }
+      else {
+        if (!Firestoredata.includes(deviceData)) {
+          Firestoredata.push(deviceData);
+        }
       }
     });
   });

@@ -25,10 +25,7 @@ const getLocations = async () => {
     deviceID.forEach(singleDevice => {
       var deviceData = singleDevice.data();
 
-      //Populate all data in array
-      if (!ddlData.includes(deviceData)) {
-        ddlData.push(deviceData);
-      }
+
 
       //Populate only Taluqa in array
       if (!Taluqa.includes(deviceData.Taluqa)) {
@@ -37,9 +34,13 @@ const getLocations = async () => {
 
       //Populate only dnlist in array
       if (!dnlData.includes(deviceData.DeviceID)) {
-        if(role === 'Admin') {
+        if (role === 'Admin') {
           // Full Access
           dnlData.push(deviceData.DeviceID);
+          //Populate all data in array
+          if (!ddlData.includes(deviceData)) {
+            ddlData.push(deviceData);
+          }
         }
         else if (role === 'Guest') {
           // Active Devices Only
@@ -48,11 +49,19 @@ const getLocations = async () => {
           // Area Wise Full Access
           if (userTaluqa === deviceData.Taluqa) {
             dnlData.push(deviceData.DeviceID);
+            //Populate all data in array
+            if (!ddlData.includes(deviceData)) {
+              ddlData.push(deviceData);
+            }
           }
         }
         else if (role === 'Developer') {
           // Full Access
           dnlData.push(deviceData.DeviceID);
+          //Populate all data in array
+          if (!ddlData.includes(deviceData)) {
+            ddlData.push(deviceData);
+          }
         }
       }
     });
@@ -73,7 +82,7 @@ const getLocations = async () => {
         el.textContent = opt;
         el.value = opt;
         select.appendChild(el);
-      }   
+      }
     }
   });
   getDataFromRealtime();
@@ -95,27 +104,27 @@ function getDataFromRealtime() {
     var totalUnderMaintananceDevices = 0;
     for (let i = 0; i < NoOfDevices; i++) {
       deviceName = Object.keys(data)[i];
-        if (dnlData.includes(deviceName)) {
-          singleDeviceData = data[deviceName];
-          singleDeviceLastUpdate = singleDeviceData.LastUpdate;
-          var underMaintananceDevice = singleDeviceData.UnderMintanance;
-          var currentDateTime = new Date();
-          var currentDateTimeInSec = currentDateTime.setSeconds(currentDateTime.getSeconds() - 3);
-          var singleDeviceLastUpdateInSec = Date.parse(singleDeviceLastUpdate) - 18000000;
-          if (singleDeviceLastUpdateInSec > currentDateTimeInSec - 90000) {
-            activeDevices += 1;
-            TotalActivePlants.innerText = activeDevices;
-          }
-          if (underMaintananceDevice) {
-            totalUnderMaintananceDevices += 1;
-            TotalUnderMaintanancePlants.innerText = totalUnderMaintananceDevices;
-          }
-          TotalNonActivePlants.innerText = ddlData.length - activeDevices - totalUnderMaintananceDevices;
+      if (dnlData.includes(deviceName)) {
+        singleDeviceData = data[deviceName];
+        singleDeviceLastUpdate = singleDeviceData.LastUpdate;
+        var underMaintananceDevice = singleDeviceData.UnderMintanance;
+        var currentDateTime = new Date();
+        var currentDateTimeInSec = currentDateTime.setSeconds(currentDateTime.getSeconds() - 3);
+        var singleDeviceLastUpdateInSec = Date.parse(singleDeviceLastUpdate) - 18000000;
+        if (singleDeviceLastUpdateInSec > currentDateTimeInSec - 90000) {
+          activeDevices += 1;
+          TotalActivePlants.innerText = activeDevices;
         }
+        if (underMaintananceDevice) {
+          totalUnderMaintananceDevices += 1;
+          TotalUnderMaintanancePlants.innerText = totalUnderMaintananceDevices;
+        }
+        TotalNonActivePlants.innerText = ddlData.length - activeDevices - totalUnderMaintananceDevices;
+      }
       // }
     }
   });
-} 
+}
 //==============================================================================================================
 
 
@@ -134,7 +143,7 @@ function populateArea(_Taluqa) {
   document.getElementById("ddlDeviceName").innerHTML = "<option>Select Device</option>";
 
   //Fill Area dropdown
-    for (var i = 0; i < filteredArea.length; i++) {
+  for (var i = 0; i < filteredArea.length; i++) {
     var opt = filteredArea[i].Location;
     var el = document.createElement("option");
     el.textContent = opt;

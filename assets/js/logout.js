@@ -1,6 +1,4 @@
 function logout() {
-    setSSData('email', '');
-    setSSData('password', '');
-    setSSData('role', '');
+    clearSSdata();
     window.location = "./login.html";
 }
