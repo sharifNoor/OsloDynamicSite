@@ -16,7 +16,6 @@
     dbRefObject.on('value', snap => {
         var data = snap.val();
         var length = Object.keys(data).length;
-        // console.log(length);
         var body = document.getElementById('underMaintananceDevicesDiv');
         var tbl = document.getElementById('underMaintananceDevicesTable');
         tbl.style.width = '100%';
@@ -67,7 +66,6 @@
 }());
 
 function CheckPermissions () {
-    console.log ('hahaha')
     var role = getSSData('role');
     if (role !== 'Developer') {
         clearSSdata();
