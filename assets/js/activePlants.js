@@ -64,11 +64,6 @@ const dataFromFirestore = async () => {
               document.getElementById(deviceName).innerHTML = "<div style='border-radius: 25px' class='p-2 bg-primary bg-gradient text-white'><h3 class='text-center'>" + Firestoredata[n].DeviceName + "</h3>" + '<p class="m-0">Taluqa: ' + Firestoredata[n].Taluqa + '</p><p class="m-0">Location: ' + Firestoredata[n].Location + '</p><p class="m-0">Operator: ' + Firestoredata[m].OperatorName + '</p><p class="m-0">Contact No: ' + Firestoredata[m].OperatorCellNo + '</p></div>';
             }
           }
-          // singleDeviceData = data[deviceName];
-          // singleDeviceFlowRate = singleDeviceData.FlowRateFromFloatSwitch;
-          // singleDeviceTotalFlow = singleDeviceData.TotalLitresFromFloatSwitch;
-          // singleDeviceLastUpdate = singleDeviceData.LastUpdate.split("T", 2);
-          // document.getElementById(deviceName).innerHTML = "<div style='border-radius: 25px' class='p-2 bg-primary bg-gradient text-white'><h3 class='text-center'>" + deviceName + "</h3>" + '<p>Flow Rate: ' + singleDeviceFlowRate + '</p><p>Total Flow: ' + singleDeviceTotalFlow + '</p><p>Last Update: ' + singleDeviceLastUpdate[0] + " " + singleDeviceLastUpdate[1].slice(0, -1) + '</p></div>';
         }
         else {
           for (var m = 0; m < Firestoredata.length; m++) {
@@ -81,15 +76,6 @@ const dataFromFirestore = async () => {
               div.innerHTML = "<div style='height: 100%; border-radius: 25px' class='p-2 bg-primary bg-gradient text-white'><h3 class='text-center'>" + Firestoredata[m].DeviceName + "</h3>" + '<p class="m-0">Taluqa: ' + Firestoredata[m].Taluqa + '</p><p class="m-0">Location: ' + Firestoredata[m].Location + '</p><p class="m-0">Operator: ' + Firestoredata[m].OperatorName + '</p><p class="m-0">Contact No: ' + Firestoredata[m].OperatorCellNo + '</p></div>';
             }
           }
-          // div = document.createElement('div');
-          // div.id = deviceName;
-          // div.className = 'col p-1';
-          // outer.appendChild(div);
-          // singleDeviceData = data[deviceName];
-          // singleDeviceFlowRate = singleDeviceData.FlowRateFromFloatSwitch;
-          // singleDeviceTotalFlow = singleDeviceData.TotalLitresFromFloatSwitch;
-          // singleDeviceLastUpdate = singleDeviceData.LastUpdate.split("T", 2);
-          // div.innerHTML = "<div style='border-radius: 25px' class='p-2 bg-primary bg-gradient text-white'><h3 class='text-center'>" + deviceName + "</h3>" + '<p>Flow Rate: ' + singleDeviceFlowRate + '</p><p>Total Flow: ' + singleDeviceTotalFlow + '</p><p>Last Update: ' + singleDeviceLastUpdate[0] + " " + singleDeviceLastUpdate[1].slice(0, -1) + '</p></div>';
         }
       }
       else {
