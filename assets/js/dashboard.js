@@ -2,6 +2,7 @@ var ddlData = [];
 var dnlData = [];
 var role;
 var userTaluqa;
+
 var config = {
   apiKey: "AIzaSyCaNA5SLdRQHM-KnBKTtHf8km6go9VvlcY",
   authDomain: "firsthundreddevices.firebaseapp.com",
@@ -19,6 +20,9 @@ var AreaLocation = [];
 const getLocations = async () => {
   const email = await getSSData('email');
   role = await getSSData('role');
+  if (role === null) {
+    window.location = window.location = "./login.html";
+  }
   userTaluqa = await getSSData('userTaluqa');
   //Get devices information from firestore and store in arrays.
   await fireStore.collection("Devices").get().then((deviceID) => {

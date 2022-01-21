@@ -5,6 +5,9 @@ var userRole;
 const dataFromFirestore = async () => {
   userTaluqa = await getSSData('userTaluqa');
   userRole = await getSSData('role');
+  if (userRole === null) {
+    window.location = window.location = "./login.html";
+  }
   let fireStore = firebase.firestore();
   await fireStore.collection("Devices").get().then((deviceID) => {
     deviceID.forEach(singleDevice => {

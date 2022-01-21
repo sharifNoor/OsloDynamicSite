@@ -6,6 +6,7 @@
         storageBucket: "firsthundreddevices.appspot.com",
         projectId: "firsthundreddevices",
     };
+    window.onload = CheckPermissions();
     firebase.initializeApp(config);
     var database = firebase.database();
     var deviceName;
@@ -64,3 +65,13 @@
         body.appendChild(tbl);
     });
 }());
+
+function CheckPermissions () {
+    console.log ('hahaha')
+    var role = getSSData('role');
+    if (role !== 'Developer') {
+        clearSSdata();
+        window.location = window.location = "./login.html";
+        alert('Permission Denied!\nOnly Developers are allowed to access this page')
+    }
+}
