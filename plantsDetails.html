@@ -40,11 +40,36 @@
                 <p class="col-6" id="ContactNo">Contact No: </p>
                 <p class="col-6" id="NatAvailable">Is Internet Available: </p>
                 <p class="col-6" id="NetDeviceNo">Internet Device No: </p>
+                <button type="submit" id="addDeviceBtn"
+                    style="width: 100%; margin-bottom: 1%; background-color: cornflowerblue; border-radius: 10px;">Generate Non Confirmance
+                    Report (NCR)</button>
             </div>
         </div>
+<!------------------------------------------------------------------------------------------------------------------------>
+        <div id="addDeviceModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content" style="width: 50%; margin-left: 25%; margin-top: 10%;">
+                <div class="modal-header">
+                    <h3>Generate NCR</h3>
+                    <span id="addDeviceModalClose" class="close btn">&times;</span>
+                </div>
+                <div class="modal-footer">
+                    <div id="details" class="ml-3 mr-3" style="justify-content: center; width: 100%;">
+                        <h4 id="DeviceID">Device Name: </h4>
+                        <h5>Issue: </h5>
+                        <textarea id="IssueText" style="width: 100%;" rows="3" placeholder="Description"
+                            required></textarea>
+                        <button id="PostIssueBtn" type="submit" onclick="PostIssue()"
+                            style="width: 25%; margin-left: 75%; background-color: cornflowerblue; border-radius: 10px;">Generate</button>
+                    </div>
+
+                </div>
+            </div>
 </body>
 <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-firestore.js"></script>
+<script src="./assets/js/generateNCR.js"></script>
+<script src="./assets/js/sS.js"></script>
 <script src="./assets/js/logout.js"></script>
 <script src="./assets/js/deviceDetails.js"></script>
 

@@ -10,6 +10,7 @@
   var ContactNo = document.getElementById('ContactNo');
   var NatAvailable = document.getElementById('NatAvailable');
   var NetDeviceNo = document.getElementById('NetDeviceNo');
+  var btn = document.getElementById("addDeviceBtn");
   
   var config = {
     apiKey: "AIzaSyCaNA5SLdRQHM-KnBKTtHf8km6go9VvlcY",
@@ -38,6 +39,15 @@
         NatAvailable.innerText = 'Is Internet Available: ' + deviceData.NetAvailable;
         NetDeviceNo.innerText = 'Internet Device No: ' + deviceData.NetDeviceNo;
         iframe.src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAlFfikVxbKgBIcrCDFwbdnJJnFzTtkM50&q=" + Latitude + "," + Longitude + "&maptype=satellite";
+
+        var role = getSSData('role')
+        if(role === 'Supervisor' && deviceData.IssueFromSupervisor === undefined) {
+            btn.style.display = "block"
+        }
+        else {
+          btn.style.display = "none"
+        }
+        
       }
     });
   });
