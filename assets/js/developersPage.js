@@ -41,7 +41,7 @@ const CheckPermissions = async () => {
         var body = document.getElementById('underMaintananceDevicesDiv');
         var tbl = document.getElementById('underMaintananceDevicesTable');
         tbl.style.width = '100%';
-        tbl.className = 'table table-hover table-responsive';
+        tbl.className = 'table table-hover';
         var tbdy = document.createElement('tbody');
         for (var i = 0; i < length; i++) {
             deviceName = Object.keys(data)[i];
