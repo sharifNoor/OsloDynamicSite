@@ -6,20 +6,15 @@
         storageBucket: "firsthundreddevices.appspot.com",
         projectId: "firsthundreddevices",
     };
-    // firebase.initializeApp(config);
     let fireStore = firebase.firestore();
     var database = firebase.database();
-    var deviceName;
     const arr = ['S.No.', 'Device ID', 'Issue', 'Action'];
-    var devicesListRealTime = [];
-    var devicesListFirestore = [];
     var fsDeviceName;
 
     fireStore.collection("Devices").get().then((deviceID) => {
         deviceID.forEach(singleDevice => {
             var deviceData = singleDevice.data();
             fsDeviceName = singleDevice.data().DeviceID;
-            // console.log(JSON.stringify(deviceData.DeviceID));
             if (deviceData.IssueFromSupervisor !== undefined) {
                     var body = document.getElementById('issueFromSupervisorDiv');
                     var tbl = document.getElementById('issueFromSupervisorTalble');
