@@ -82,7 +82,7 @@ const CheckPermissions = async () => {
                                 '<button id="abc" class="btn btn-link btn-sm mr-3" style="max-width: 50px;" role="button">' +
                                 '<img src="images/delete.png" style="max-width:100; height:25px" class="thumbnail img-responsives" alt="">' +
                                 '</button>' + '</div>';
-                            td.onclick = del(deviceName);
+                            td.onclick = del(deviceName, 'Issue');
                         }
                         tr.appendChild(td);
                     }

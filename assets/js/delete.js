@@ -1,4 +1,4 @@
-const del = id => e => {
+const del = (id, type) => e => {
     e.preventDefault();
     e.stopPropagation();
     alert('Do you want to Delete ' + id + ' issue??')
@@ -12,13 +12,24 @@ const del = id => e => {
             let fireStore = firebase.firestore();
             const FieldValue = firebase.firestore.FieldValue;
             var docRef = fireStore.collection("Devices");
-            docRef.doc(id).update({
-                Issue: FieldValue.delete()
-            }).then(() => {
-                location.reload();
-            }).catch((error) => {
-                alert("Error Occured:", error);
-            });
+            if (type === 'Issue') {
+                docRef.doc(id).update({
+                    Issue: FieldValue.delete()
+                }).then(() => {
+                    location.reload();
+                }).catch((error) => {
+                    alert("Error Occured:", error);
+                });
+            }
+            else if (type === 'Supervisor') {
+                docRef.doc(id).update({
+                    IssueFromSupervisor: FieldValue.delete()
+                }).then(() => {
+                    location.reload();
+                }).catch((error) => {
+                    alert("Error Occured:", error);
+                });
+            }
         }
     });
 }
