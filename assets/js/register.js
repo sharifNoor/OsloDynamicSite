@@ -42,7 +42,7 @@ const createUser = async (email, pwd, name, role, userTaluqa) => {
 			Taluqa: userTaluqa
 		}).then(() => {
 			setSSData('email', email);
-			setSSData('password', pwd);
+			// setSSData('password', pwd);
 			setSSData('role', role);
 			setSSData('userTaluqa', userTaluqa);
 			window.location = "./dashboard.html";

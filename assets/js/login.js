@@ -42,7 +42,7 @@ const checkUser = async (email, pwd) => {
 			var userData = user.data();
 			if (userData.Password === pwd) {
 				setSSData('email', email);
-				setSSData('password', pwd);
+				// setSSData('password', pwd);
 				setSSData('role', userData.Role);
 				setSSData('userTaluqa', userData.Taluqa);
 				window.location = "./dashboard.html";
