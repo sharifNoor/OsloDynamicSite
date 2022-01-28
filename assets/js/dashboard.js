@@ -29,8 +29,6 @@ const getLocations = async () => {
     deviceID.forEach(singleDevice => {
       var deviceData = singleDevice.data();
 
-
-
       //Populate only Taluqa in array
       if (!Taluqa.includes(deviceData.Taluqa)) {
         Taluqa.push(deviceData.Taluqa);
