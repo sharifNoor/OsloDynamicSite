@@ -123,13 +123,10 @@ function getDataFromRealtime() {
         }
         TotalNonActivePlants.innerText = ddlData.length - activeDevices - totalUnderMaintananceDevices;
       }
-      // }
     }
   });
 }
 //==============================================================================================================
-
-
 
 function populateArea(_Taluqa) {
   //Filter Data list by Taluqa
@@ -177,4 +174,3 @@ function populateDevices(_Area) {
     select.appendChild(el);
   }
 }
-

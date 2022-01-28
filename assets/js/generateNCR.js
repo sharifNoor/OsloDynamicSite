@@ -27,7 +27,6 @@ const PostIssue = async () => {
         // The document probably doesn't exist.
         alert("Error Generating NCR\n" + error);
     });
-    ;
 }
 
 (function () {

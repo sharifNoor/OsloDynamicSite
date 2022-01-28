@@ -1,6 +1,5 @@
 (function () {
   var Firestoredata = [];
-
   var Latitude, Longitude;
   var iframe = document.getElementById('iframe');
   var DeviceName = document.getElementById('DeviceName');
@@ -11,7 +10,6 @@
   var NatAvailable = document.getElementById('NatAvailable');
   var NetDeviceNo = document.getElementById('NetDeviceNo');
   var btn = document.getElementById("addDeviceBtn");
-  
   var config = {
     apiKey: "AIzaSyCaNA5SLdRQHM-KnBKTtHf8km6go9VvlcY",
     authDomain: "firsthundreddevices.firebaseapp.com",
@@ -42,12 +40,11 @@
 
         var role = getSSData('role')
         if(role === 'Supervisor' && deviceData.IssueFromSupervisor === undefined) {
-            btn.style.display = "block"
+          btn.style.display = "block"
         }
         else {
           btn.style.display = "none"
         }
-        
       }
     });
   });
