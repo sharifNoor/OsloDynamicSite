@@ -1,4 +1,4 @@
-const DataGetter = () => {
+const DataGetter = async () => {
     var config1 = {
         apiKey: "AIzaSyCaNA5SLdRQHM-KnBKTtHf8km6go9VvlcY",
         authDomain: "firsthundreddevices.firebaseapp.com",
@@ -14,13 +14,15 @@ const DataGetter = () => {
         projectId: "secondhundreddevices",
     };
     var config = [config1, config2]
-    var name = ['DEFAULT', 'App1']
-    for (var i=0; i<config.length; i++) {
-        firebase.initializeApp(config[i], name[i]);
-        const dbRefObject = firebase.database().ref();
-        dbRefObject.on('value', snap => {
+    var name = ['default', 'App1']
+    for (var i=0; i<2; i++) {
+        // firebase.initializeApp(config[0]);
+        var database = firebase.initializeApp(config[i], 'others' + i);
+        var dbRefObject = firebase.database(database).ref();
+        await dbRefObject.once('value', snap => {
             var data = snap.val();
-            console.log('Data ===> ' + data);
+            console.log('Data ===> ' + JSON.stringify(data));
         });
+        // dbRefObject.off();
     }
 }
