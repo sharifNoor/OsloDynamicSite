@@ -7,6 +7,7 @@ const dataFromFirestore = async () => {
   userTaluqa = await getSSData('userTaluqa');
   userRole = await getSSData('role');
   var dataReal = await DataGetter();
+  console.log(dataReal)
   let fireStore = firebase.firestore();
   await fireStore.collection("Devices").get().then((deviceID) => {
     deviceID.forEach(singleDevice => {
