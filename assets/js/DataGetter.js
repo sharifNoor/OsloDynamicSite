@@ -1,4 +1,4 @@
-(function () {
+const DataGetter = () => {
     var config1 = {
         apiKey: "AIzaSyCaNA5SLdRQHM-KnBKTtHf8km6go9VvlcY",
         authDomain: "firsthundreddevices.firebaseapp.com",
@@ -13,9 +13,14 @@
         storageBucket: "secondhundreddevices.appspot.com",
         projectId: "secondhundreddevices",
     };
-
     var config = [config1, config2]
+    var name = ['DEFAULT', 'App1']
     for (var i=0; i<config.length; i++) {
-        firebase.initializeApp(config[i]);
+        firebase.initializeApp(config[i], name[i]);
+        const dbRefObject = firebase.database().ref();
+        dbRefObject.on('value', snap => {
+            var data = snap.val();
+            console.log('Data ===> ' + data);
+        });
     }
-});
+}

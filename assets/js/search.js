@@ -9,11 +9,12 @@ function search() {
         var length = Object.keys(data).length;
         for (var i = 0; i < length; i++) {
             deviceName = Object.keys(data)[i];
-            if (!document.getElementById(deviceName)) {
-                var a = document.createElement('option');
+            if (!document.getElementById('UM' + deviceName)) {
+                var a = document.createElement('a');
                 a.innerText = deviceName;
                 a.id = deviceName;
                 listOuter.appendChild(a);
+                console.log('deviceName')
                 a.onclick = disp(a.id);
             }
         }
@@ -25,7 +26,7 @@ const disp = id => e => {
     e.stopPropagation();
     var searchBox = document.getElementById('deviceList');
     searchBox.value = id;
-    document.getElementById("DevicesDropdown").classList.toggle("show");
+    document.getElementById("DevicesDropdown").classList.toggle("hide");
     document.getElementById("details").style.display = 'block';
 };
 
@@ -61,7 +62,7 @@ function filterFunction() {
     input = document.getElementById("deviceList");
     filter = input.value.toUpperCase();
     div = document.getElementById("DevicesDropdown");
-    a = div.getElementsByTagName("option");
+    a = div.getElementsByTagName("a");
     for (i = 0; i < a.length; i++) {
         txtValue = a[i].textContent || a[i].innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {

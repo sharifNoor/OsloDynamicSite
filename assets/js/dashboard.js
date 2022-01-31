@@ -29,6 +29,8 @@ const getLocations = async () => {
     deviceID.forEach(singleDevice => {
       var deviceData = singleDevice.data();
 
+
+
       //Populate only Taluqa in array
       if (!Taluqa.includes(deviceData.Taluqa)) {
         Taluqa.push(deviceData.Taluqa);
@@ -123,10 +125,13 @@ function getDataFromRealtime() {
         }
         TotalNonActivePlants.innerText = ddlData.length - activeDevices - totalUnderMaintananceDevices;
       }
+      // }
     }
   });
 }
 //==============================================================================================================
+
+
 
 function populateArea(_Taluqa) {
   //Filter Data list by Taluqa
@@ -174,3 +179,4 @@ function populateDevices(_Area) {
     select.appendChild(el);
   }
 }
+

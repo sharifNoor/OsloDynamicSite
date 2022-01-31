@@ -1,198 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>RO PLANT</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/searchStyles.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
-        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
-        crossorigin="anonymous"></script>
+<title>RO PLANT</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="./css/searchStyles.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body class="pt-5">
-    <div class="container mt-5">
-        <div class="d-flex justify-content-between">
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end m-1">
-                <a class="btn btn-link btn-sm" role="button" href="dashboard.html">
-                    <img src="images/back-btn.png" style="max-width:80%; margin-left: -25px;"
-                        class="thumbnail img-responsives" alt="">
-                </a>
-            </div>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end m-2">
-                <a class="btn btn-outline-dark btn-sm" role="button" onclick="logout()">
-                    Logout
-                </a>
-            </div>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-6"> <a class="btn btn-link btn-sm" role="button" href="dashboard.html"> <img src="images/back-btn.png" width="32px"> </a> </div>
+    <div class="col-6 text-end"> <a class="btn btn-outline-dark btn-sm" role="button" onclick="logout()"> Logout </a> </div>
+  </div>
+  <div class="row">
+    <div class="col-12 mb-5 text-center"> <img src="images/jv-logo.jpg" class="img-fluid border-bottom"> </div>
+  </div>
+  <div id="issueFromSupervisorDiv" class="border border-1 border-dark rounded-2 p-3 mb-3">
+    <div class="row">
+      <div class="col-12">
+        <h4>Issues from Supervisor</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered w-100" id="issueFromSupervisorTalble">
+            <tr>
+              <th>S.No.</th>
+              <th>Device ID</th>
+              <th>Location</th>
+              <th>Issue from Supervisor</th>
+              <th>Action</th>
+            </tr>
+          </table>
         </div>
-        <div class="col-12 mb-5 text-center"><img src="images/jv-logo.jpg" class="img-fluid border-bottom"> </div>
-
-        <div id="issueFromSupervisorDiv" class="pt-3 pl-3 pr-3 shadow mb-4">
-            <div class="row ml-3 mr-3" style="justify-content: space-between;">
-                <h4>Issues from Supervisor</h4>
+      </div>
+    </div>
+</div>
+  <div id="underMaintananceDevicesDiv" class="border border-1 border-dark rounded-2 p-3 mb-3">
+    <div class="row">
+      <div class="col-6">
+        <h4>Devices Under Mintanance</h4>
+      </div>
+      <div class="col-6 text-end">
+        <button class="btn btn-link btn-sm" role="button" id="addDeviceBtn"> <img src='images/add.png' style="height: 25px;" class="thumbnail img-responsives"> </button>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table" id="underMaintananceDevicesTable">
+        <thead>
+          <tr>
+            <th scope="col">S.No.</th>
+            <th scope="col">Device ID</th>
+            <th scope="col">Location</th>
+            <th scope="col">Issue</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+  <div id="pendingDevicesDiv" class="border border-1 border-dark rounded-2 p-3 mb-3">
+    <div class="row">
+      <h4>Devices Pending for Linking</h4>
+    </div>
+    <div class="table-responsive">
+      <table class="table" id="pendingDevicestable">
+        <thead>
+          <tr>
+            <th scope="col">S.No.</th>
+            <th scope="col">Device ID</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+  <div id="addDeviceModal" class="modal">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"> 
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Add Device</h3>
+          <span id="addDeviceModalClose" class="close btn">&times;</span> </div>
+        <div class="modal-body">
+          <div class="dropdown">
+            <div class="row mb-3">
+              <div class="col-sm-12">Search Device By ID: </div>
             </div>
-            <div class="table-responsive">
-                <table class="table" id="issueFromSupervisorTalble">
-                    <thead>
-                        <tr>
-                            <th scope="col">S.No.</th>
-                            <th scope="col">Device ID</th>
-                            <th scope="col">Location</th>
-                            <th scope="col">Issue from Supervisor</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                </table>
+            <div class="row mb-3">
+              <div class="col-sm-12">
+                <input class="form-control" type="text" onclick="search()" placeholder="Search.." id="deviceList" onkeyup="filterFunction()">
+              </div>
             </div>
+            <div class="row mb-3">
+              <div class="col-sm-12">
+                <div id="DevicesDropdown" class="dropdown-content"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-sm-12">Issue:</div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-sm-12">
+              <textarea id="IssueText" rows="5" class="form-control" placeholder="Description" required></textarea>
+            </div>
+          </div>
         </div>
-
-        <div id="underMaintananceDevicesDiv" class="pt-3 pl-3 pr-3 shadow mb-4">
-            <div class="row ml-3 mr-3" style="justify-content: space-between;">
-                <h4>Devices Under Mintanance</h4>
-                <button class="btn btn-link btn-sm" style="max-width: 50px;" role="button" id="addDeviceBtn">
-                    <img src='images/add.png' style="height: 25px;" class="thumbnail img-responsives" alt="" />
-                </button>
+        <div class="modal-footer">
+          <div id="details">
+            <div>
+              <button id="CloseBtn1" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" onclick="submit(deviceList.value)">Add</button>
             </div>
-            <table class="table w-100" id="underMaintananceDevicesTable">
-                <thead>
-                    <tr>
-                        <th scope="col">S.No.</th>
-                        <th scope="col">Device ID</th>
-                        <th scope="col">Location</th>
-                        <th scope="col">Issue</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-            </table>
+          </div>
         </div>
-        <div id="pendingDevicesDiv" class="pt-3 pl-3 pr-3 shadow mb-4">
-            <div class="row ml-3 mr-3" style="justify-content: space-between;">
-                <h4>Devices Pending for Linking</h4>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div id="linkDevicesModal" class="modal">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"> 
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Link Device...</h3>
+        <span id="linkDeviceModalClose" class="close btn">&times;</span> </div>
+      <div class="modal-body">
+        <div class="dropdown">
+          <div class="row mb-3">
+            <div class="col-sm-2">Device ID: </div>
+            <div class="col-sm-10"><span class="form-control" id="DeviceID"></span></div>
+          </div>
+          <div id="linkDeviceDiv">
+            <div class="row mb-3">
+              <div class="col-sm-2">Device Name:</div>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Device Name" id="inputDeviceName" readonly>
+              </div>
             </div>
-            <div class="table-responsive">
-                <table class="table" style="width:100%;" id="pendingDevicestable">
-                    <thead>
-                        <tr>
-                            <th scope="col">S.No.</th>
-                            <th scope="col">Device ID</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                </table>
+            <div class="row mb-3">
+              <div class="col-sm-2">Taluqa:</div>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Taluqa" id="inputTaluqa">
+              </div>
             </div>
+            <div class="row mb-3">
+              <div class="col-sm-2">Location:</div>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Location" id="inputLocation">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-2">Plant Capacity:</div>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Capacity in Gal/Day" id="inputCapacity">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-2">Net Availablity:</div>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Is Internet Available ?" id="inputNetAvailable">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-2">Internet No:</div>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Internet Device No." id="inputNetDeviceNo">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-2">Operator Name:</div>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Name of Operator / Contact Person" id="inputOperatorName">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-2">Contact No:</div>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Contact No. of Operator" id="inputOperatorCellNo">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-2">Latitude:</div>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Location Latitude" id="inputLatitude">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-2">Longitude:</div>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Location Longitude" id="inputLongitude">
+              </div>
+            </div>
+          </div>
         </div>
-        <div id="addDeviceModal" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content" style="width: 50%; margin-left: 25%; margin-top: 15%;">
-                <div class="modal-header">
-                    <h3>Add Device</h3>
-                    <span id="addDeviceModalClose" class="close btn">&times;</span>
-                </div>
-                <div class="modal-body">
-                    <div class="dropdown">
-                        <div class="row ml-3 mr-3" style="justify-content: space-between; width: 100%;">
-                            <h5>Search Device By ID: </h5>
-                            <input style="width: 50%; margin-right: 30px;" type="text" onclick="search()"
-                                placeholder="Search.." id="deviceList" onkeyup="filterFunction()">
-                        </div>
-                        <div id="DevicesDropdown" class="dropdown-content">
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <div id="details" class="ml-3 mr-3" style="justify-content: center; width: 100%; display: none;">
-                        <h5>Issue: </h5>
-                        <textarea id="IssueText" style="width: 100%;" rows="3" placeholder="Description"
-                            required></textarea>
-                        <button type="submit" onclick="submit(deviceList.value)"
-                            style="width: 25%; margin-left: 75%; background-color: cornflowerblue; border-radius: 10px;">Add</button>
-                    </div>
-
-                </div>
-            </div>
+      </div>
+      <div class="modal-footer">
+        <div id="details">
+          <div class="mr-auto">
+            <button id="CloseBtn" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button id="LinkBtn" type="submit" class="btn btn-primary">Link</button>
+          </div>
         </div>
-        <div id="linkDevicesModal" class="modal">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <!-- Modal content -->
-                <div class="modal-content" style="width: 150%;">
-                    <div class="modal-header">
-                        <h3>Link Device</h3>
-                        <span id="linkDeviceModalClose" class="close btn">&times;</span>
-                    </div>
-                    <div class="modal-body">
-                        <div class="dropdown">
-                            <div class="row ml-3 mr-3" style="width: 100%;">
-                                <h5>Device ID: </h5>
-                                <h5 style="width: 75%; margin-left: 8%;" id="DeviceID"></h5>
-                            </div>
-                            <div id="linkDeviceDiv">
-                                <div class="row ml-3 mr-3" style="justify-content: space-between; width: 100%;">
-                                    <p>Device Name: </p>
-                                    <input style="width: 75%; margin-right: 30px;" type="text" placeholder="Device Name"
-                                        id="inputDeviceName" readonly>
-                                </div>
-                                <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
-                                    <p>Taluqa: </p>
-                                    <input style="width: 75%; margin-right: 30px;" type="text" placeholder="Taluqa"
-                                        id="inputTaluqa">
-                                </div>
-                                <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
-                                    <p>Location: </p>
-                                    <input style="width: 75%; margin-right: 30px;" type="text" placeholder="Location"
-                                        id="inputLocation">
-                                </div>
-                                <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
-                                    <p>Plant Capacity: </p>
-                                    <input style="width: 75%; margin-right: 30px;" type="text"
-                                        placeholder="Capacity in Gal/Day" id="inputCapacity">
-                                </div>
-                                <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
-                                    <p>Net Availablity: </p>
-                                    <input style="width: 75%; margin-right: 30px;" type="text"
-                                        placeholder="Is Internet Available ?" id="inputNetAvailable">
-                                </div>
-                                <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
-                                    <p>Internet No: </p>
-                                    <input style="width: 75%; margin-right: 30px;" type="text"
-                                        placeholder="Internet Device No." id="inputNetDeviceNo">
-                                </div>
-                                <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
-                                    <p>Operator Name: </p>
-                                    <input style="width: 75%; margin-right: 30px;" type="text"
-                                        placeholder="Name of Operator / Contact Person" id="inputOperatorName">
-                                </div>
-                                <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
-                                    <p>Contact No: </p>
-                                    <input style="width: 75%; margin-right: 30px;" type="text"
-                                        placeholder="Contact No. of Operator" id="inputOperatorCellNo">
-                                </div>
-                                <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
-                                    <p>Latitude: </p>
-                                    <input style="width: 75%; margin-right: 30px;" type="text"
-                                        placeholder="Location Latitude" id="inputLatitude">
-                                </div>
-                                <div class="row ml-3 mr-3 mt-1" style="justify-content: space-between; width: 100%;">
-                                    <p>Longitude: </p>
-                                    <input style="width: 75%; margin-right: 30px;" type="text"
-                                        placeholder="Location Longitude" id="inputLongitude">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <div id="details" class="ml-3 mr-3" style="justify-content: center; width: 100%;">
-                            <button id="LinkBtn" type="submit"
-                                style="width: 25%; margin-left: 75%; background-color: cornflowerblue; border-radius: 10px;">Link</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 </body>
 <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-firestore.js"></script>
@@ -205,7 +223,4 @@
 <script src="./assets/js/search.js"></script>
 <script src="./assets/js/delete.js"></script>
 <script src="./assets/js/logout.js"></script>
-
-
-
 </html>

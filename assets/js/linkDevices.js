@@ -7,6 +7,8 @@ const linkDevice = id => e => {
 
     // Get the <span> element that closes the modal
     var span = document.getElementById("linkDeviceModalClose");
+	var JSCloseBtn = document.getElementById("CloseBtn");
+	var JSCloseBtn1 = document.getElementById("CloseBtn1");
     var DeviceIdDiv = document.getElementById("DeviceID");
     var DeviceDisplayName = document.getElementById("inputDeviceName");
     var DeviceTaluqa = document.getElementById("inputTaluqa");
@@ -63,7 +65,10 @@ const linkDevice = id => e => {
     span.onclick = function () {
         linkmodal.style.display = "none";
     }
-
+	  JSCloseBtn.onclick = function () {
+        linkmodal.style.display = "none";
+    }
+	
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {

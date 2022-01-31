@@ -1,10 +1,10 @@
-function getSSData(key) {
-    let ssData = sessionStorage.getItem(key);
-    return atob(ssData);
+function getSSData(key){
+	ssData = sessionStorage.getItem(key);
+    return ssData;
 }
 
 function setSSData (key, SSData) {
-    sessionStorage.setItem(key, btoa(SSData));
+    sessionStorage.setItem(key, SSData);
 }
 
 function clearSSdata () {

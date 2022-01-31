@@ -39,8 +39,8 @@ const CheckPermissions = async () => {
         var data = snap.val();
         var length = Object.keys(data).length;
         var body = document.getElementById('underMaintananceDevicesDiv');
-        var tbl = document.getElementById('underMaintananceDevicesTable');
-        tbl.style.width = '100%';
+        var tbl =  document.getElementById('underMaintananceDevicesTable');
+       
         tbl.className = 'table table-hover';
         var tbdy = document.createElement('tbody');
         for (var i = 0; i < length; i++) {
@@ -55,17 +55,18 @@ const CheckPermissions = async () => {
                         td.appendChild(document.createTextNode('\u0020'));
                         if (j === 0) {
                             td.innerText = i + 1;
+							td.align= 'center';
                         }
                         else if (j === 1) {
                             td.innerText = deviceName;
                             td.id = deviceName;
-                            td.style.paddingLeft = '15px'
+                           
                         }
                         else if (j === 2) {
                             for (var k = 0; k < DevicesFromFirebase.length; k++) {
                                 if (DevicesFromFirebase[k].DeviceID === deviceName){
                                     td.innerText = DevicesFromFirebase[k].Location;
-                                    td.style.paddingLeft = '15px';
+                                    
                                 }
                             }
                         }
@@ -73,15 +74,16 @@ const CheckPermissions = async () => {
                             for (var l = 0; l < DevicesFromFirebase.length; l++) {
                                 if (DevicesFromFirebase[l].DeviceID === deviceName){
                                     td.innerText = DevicesFromFirebase[l].Issue;
-                                    td.style.paddingLeft = '15px';
+                                    
                                 }
                             }
                         }
                         else if (j === 4) {
-                            td.innerHTML = '<div class="row d-flex justify-content-md-end">' +
-                                '<button id="abc" class="btn btn-link btn-sm mr-3" style="max-width: 50px;" role="button">' +
-                                '<img src="images/delete.png" style="max-width:100; height:25px" class="thumbnail img-responsives" alt="">' +
-                                '</button>' + '</div>';
+                            td.innerHTML = 
+                                '<button id="abc" class="btn btn-link btn-sm mr-3" role="button">' +
+                                '<img src="images/delete.png" width="30px"  class="thumbnail img-responsives" alt="">' +
+                                '</button>';
+							td.align= 'center';
                             td.onclick = del(deviceName, 'Issue');
                         }
                         tr.appendChild(td);

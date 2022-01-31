@@ -6,14 +6,19 @@
         storageBucket: "firsthundreddevices.appspot.com",
         projectId: "firsthundreddevices",
     };
+    // firebase.initializeApp(config);
     let fireStore = firebase.firestore();
+    var database = firebase.database();
     var deviceName;
+    var deviceUnderMaintainance;
+    const arr = ['S.No.', 'Device ID', 'Action'];
     var devicesListRealTime = [];
     var devicesListFirestore = [];
     var fsDeviceName;
 
     fireStore.collection("Devices").get().then((deviceID) => {
         deviceID.forEach(singleDevice => {
+            var deviceData = singleDevice.data();
             fsDeviceName = singleDevice.data().DeviceID;
             // console.log(JSON.stringify(deviceData.DeviceID));
             if (!devicesListFirestore.includes(fsDeviceName)) {
@@ -51,6 +56,7 @@
                         td.appendChild(document.createTextNode('\u0020'));
                         if (j === 0) {
                             td.innerText = i + 1;
+							td.align='center';
                         }
                         else if (j === 1) {
                             td.innerText = devicesListRealTime[i];
@@ -58,10 +64,11 @@
                             td.style.paddingLeft = '15px'
                         }
                         else if (j === 2) {
-                            td.innerHTML = '<div class="row d-flex justify-content-md-end">' +
-                                '<button id="btn' + devicesListRealTime[i] + '" class="btn btn-link btn-sm mr-3" style="max-width: 50px;" role="button">' +
+                            td.innerHTML = 
+                                '<button id="btn' + devicesListRealTime[i] + '" class="btn btn-link btn-sm mr-3" role="button">' +
                                 '<img src="images/add.png" style="max-width:100; height:25px" class="thumbnail img-responsives" alt="">' +
-                                '</button>' + '</div>';
+                                '</button>';
+								td.align='center';
                             td.onclick = linkDevice(devicesListRealTime[i]);
                         }
                         tr.appendChild(td);

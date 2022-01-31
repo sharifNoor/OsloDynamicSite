@@ -38,6 +38,7 @@ const dataFromFirestore = async () => {
   dataFromFirestore();
 
   // Get a reference to the database service
+  var database = firebase.database();
   var deviceName;
   var div;
   var singleDeviceData;
