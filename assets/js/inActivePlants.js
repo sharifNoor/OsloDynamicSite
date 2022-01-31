@@ -6,8 +6,6 @@ var userRole;
 const dataFromFirestore = async () => {
   userTaluqa = await getSSData('userTaluqa');
   userRole = await getSSData('role');
-  var dataReal = await DataGetter();
-  console.log(dataReal)
   let fireStore = firebase.firestore();
   await fireStore.collection("Devices").get().then((deviceID) => {
     deviceID.forEach(singleDevice => {
@@ -34,6 +32,11 @@ const dataFromFirestore = async () => {
   });
 }
 
+const getRealTimeData = async () => {
+  var dataReal = await DataGetter();
+  console.log(dataReal)
+}
+
 (function () {
   var config = {
     apiKey: "AIzaSyCaNA5SLdRQHM-KnBKTtHf8km6go9VvlcY",
@@ -43,6 +46,7 @@ const dataFromFirestore = async () => {
     projectId: "firsthundreddevices"
   };
 
+  getRealTimeData();
   firebase.initializeApp(config);
   dataFromFirestore();
 
