@@ -1,3 +1,4 @@
+var RealTimeData = [];
 const DataGetter = async () => {
     var config1 = {
         apiKey: "AIzaSyCaNA5SLdRQHM-KnBKTtHf8km6go9VvlcY",
@@ -16,13 +17,12 @@ const DataGetter = async () => {
     var config = [config1, config2]
     var name = ['default', 'App1']
     for (var i=0; i<2; i++) {
-        // firebase.initializeApp(config[0]);
         var database = firebase.initializeApp(config[i], 'others' + i);
         var dbRefObject = firebase.database(database).ref();
         await dbRefObject.once('value', snap => {
             var data = snap.val();
-            console.log('Data ===> ' + JSON.stringify(data));
+            RealTimeData.push(data);
         });
-        // dbRefObject.off();
     }
+    return RealTimeData;
 }
