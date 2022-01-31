@@ -1,0 +1,161 @@
+{
+    "DeviceID_11": {
+        "FlowRateFromFloatSwitch": 5,
+        "LastUpdate": "2022-01-01T17:58:02Z",
+        "TotalLitresFromFloatSwitch": 25,
+        "UnderMintanance": false
+    },
+    "DeviceID_12": {
+        "FlowRateFromFloatSwitch": 21,
+        "LastUpdate": "2022-01-01T17:59:54Z",
+        "TotalLitresFromFloatSwitch": 200,
+        "UnderMintanance": false
+    },
+    "DeviceID_13": {
+        "FlowRateFromFloatSwitch": 30,
+        "LastUpdate": "2022-01-01T18:33:37Z",
+        "TotalLitresFromFloatSwitch": 79,
+        "UnderMintanance": false
+    },
+    "DeviceID_14": {
+        "FlowRateFromFloatSwitch": 18,
+        "LastUpdate": "2022-01-01T18:39:22Z",
+        "TotalLitresFromFloatSwitch": 180,
+        "UnderMintanance": false
+    },
+    "DeviceID_15": {
+        "FlowRateFromFloatSwitch": 32,
+        "LastUpdate": "2022-01-01T18:57:05Z",
+        "TotalLitresFromFloatSwitch": 165,
+        "UnderMintanance": false
+    },
+    "DeviceID_16": {
+        "FlowRateFromFloatSwitch": 16,
+        "LastUpdate": "2022-01-01T18:45:37Z",
+        "TotalLitresFromFloatSwitch": 16,
+        "UnderMintanance": false
+    },
+    "DeviceID_17": {
+        "FlowRateFromFloatSwitch": 17,
+        "LastUpdate": "2022-01-01T17:51:34Z",
+        "TotalLitresFromFloatSwitch": 170,
+        "UnderMintanance": false
+    },
+    "DeviceID_18": {
+        "FlowRateFromFloatSwitch": 27,
+        "LastUpdate": "2022-01-04T14:56:25Z",
+        "TotalLitresFromFloatSwitch": 27,
+        "UnderMintanance": false
+    },
+    "DeviceID_19": {
+        "FlowRateFromFloatSwitch": 29,
+        "LastUpdate": "2022-01-04T14:17:52Z",
+        "TotalLitresFromFloatSwitch": 285
+    },
+    "DeviceID_20": {
+        "FlowRateFromFloatSwitch": 34,
+        "LastUpdate": "2022-01-04T14:31:11Z",
+        "TotalLitresFromFloatSwitch": 497
+    },
+    "DeviceID_21": {
+        "FlowRateFromFloatSwitch": 29,
+        "LastUpdate": "2022-01-04T15:16:55Z",
+        "TotalLitresFromFloatSwitch": 101
+    },
+    "DeviceID_22": {
+        "FlowRateFromFloatSwitch": 20,
+        "LastUpdate": "2022-01-08T15:31:42Z",
+        "TotalLitresFromFloatSwitch": 323
+    },
+    "DeviceID_23": {
+        "FlowRateFromFloatSwitch": 18,
+        "LastUpdate": "2022-01-04T11:23:30Z",
+        "TotalLitresFromFloatSwitch": 1086
+    },
+    "DeviceID_24": {
+        "FlowRateFromFloatSwitch": 30,
+        "LastUpdate": "2022-01-04T15:41:35Z",
+        "TotalLitresFromFloatSwitch": 63
+    },
+    "DeviceID_25": {
+        "FlowRateFromFloatSwitch": 39,
+        "LastUpdate": "2022-01-04T10:48:37Z",
+        "TotalLitresFromFloatSwitch": 54
+    },
+    "DeviceID_26": {
+        "FlowRateFromFloatSwitch": 31,
+        "LastUpdate": "2022-01-04T15:38:15Z",
+        "TotalLitresFromFloatSwitch": 31
+    },
+    "DeviceID_27": {
+        "FlowRateFromFloatSwitch": 24,
+        "LastUpdate": "2022-01-04T15:33:40Z",
+        "TotalLitresFromFloatSwitch": 59
+    },
+    "DeviceID_28": {
+        "FlowRateFromFloatSwitch": 20,
+        "LastUpdate": "1970-01-01T05:00:59Z",
+        "TotalLitresFromFloatSwitch": 20
+    },
+    "DeviceID_29": {
+        "FlowRateFromFloatSwitch": 21,
+        "LastUpdate": "2022-01-08T15:40:55Z",
+        "TotalLitresFromFloatSwitch": 13197
+    },
+    "DeviceID_30": {
+        "FlowRateFromFloatSwitch": 17,
+        "LastUpdate": "2022-01-04T15:27:12Z",
+        "TotalLitresFromFloatSwitch": 17
+    },
+    "DeviceID_31": {
+        "FlowRateFromFloatSwitch": 20,
+        "LastUpdate": "2022-01-04T16:05:05Z",
+        "TotalLitresFromFloatSwitch": 20
+    },
+    "DeviceID_32": {
+        "FlowRateFromFloatSwitch": 27,
+        "LastUpdate": "2022-01-04T16:00:38Z",
+        "TotalLitresFromFloatSwitch": 27
+    },
+    "DeviceID_33": {
+        "FlowRateFromFloatSwitch": 25,
+        "LastUpdate": "2022-01-04T16:29:29Z",
+        "TotalLitresFromFloatSwitch": 62
+    },
+    "DeviceID_34": {
+        "FlowRateFromFloatSwitch": 26,
+        "LastUpdate": "2022-01-19T14:55:14Z",
+        "TotalLitresFromFloatSwitch": 1049,
+        "UnderMintanance": true
+    },
+    "DeviceID_36": {
+        "FlowRateFromFloatSwitch": 32,
+        "LastUpdate": "2022-01-15T11:22:39Z",
+        "TotalLitresFromFloatSwitch": 57
+    },
+    "DeviceID_37": {
+        "FlowRateFromFloatSwitch": 22,
+        "LastUpdate": "2022-01-15T11:20:55Z",
+        "TotalLitresFromFloatSwitch": 191
+    },
+    "DeviceID_38": {
+        "FlowRateFromFloatSwitch": 18,
+        "LastUpdate": "2022-01-15T11:18:01Z",
+        "TotalLitresFromFloatSwitch": 488
+    },
+    "DeviceID_56": {
+        "FlowRateFromFloatSwitch": 36,
+        "LastUpdate": "2022-01-19T14:45:36Z",
+        "TotalLitresFromFloatSwitch": 97
+    },
+    "DeviceID_8": {
+        "FlowRateFromFloatSwitch": 19,
+        "LastUpdate": "2022-01-01T18:52:44Z",
+        "TotalLitresFromFloatSwitch": 698
+    },
+    "DeviceID_9": {
+        "FlowRateFromFloatSwitch": 18,
+        "LastUpdate": "2022-01-03T09:53:25Z",
+        "TotalLitresFromFloatSwitch": 39
+    }
+}
