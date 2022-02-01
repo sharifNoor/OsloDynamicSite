@@ -2,6 +2,7 @@ var Firestoredata = [];
 var FirestoreDeviceID = [];
 var userTaluqa;
 var userRole;
+let dataReal = {};
 
 const dataFromFirestore = async () => {
   userTaluqa = await getSSData('userTaluqa');
@@ -33,7 +34,7 @@ const dataFromFirestore = async () => {
 }
 
 const getRealTimeData = async () => {
-  var dataReal = await DataGetter();
+  dataReal = await DataGetter();
   console.log(dataReal)
 }
 
@@ -64,10 +65,11 @@ const getRealTimeData = async () => {
       reload = true;
     }
     else {
-      var length = Object.keys(data).length;
+      var length = Object.keys(dataReal).length;
+      console.log(length)
       for (let i = 0; i < length; i++) {
-        deviceNamee = Object.keys(data)[i];
-        singleDeviceData = data[deviceNamee];
+        deviceNamee = Object.keys(dataReal)[i];
+        singleDeviceData = dataReal[deviceNamee];
         singleDeviceLastUpdate = singleDeviceData.LastUpdate;
         var currentDateTime = new Date();
         var currentDateTimeInSec = currentDateTime.setSeconds(currentDateTime.getSeconds() - 3);
@@ -77,7 +79,7 @@ const getRealTimeData = async () => {
             if (document.getElementById(deviceNamee)) {
               for (var n = 0; n < Firestoredata.length; n++) {
                 if (Firestoredata[n].DeviceID === deviceNamee) {
-                  document.getElementById(deviceNamee).innerHTML = 
+                  document.getElementById(deviceNamee).innerHTML =
                   "<div style='border-radius: 25px' class='p-2 bg-danger bg-gradient text-white'><h3 class='text-center'>" + 
                   Firestoredata[n].DeviceName + "</h3>" + '<p class="m-0">Taluqa: ' + Firestoredata[n].Taluqa + 
                   '</p><p class="m-0">Location: ' + Firestoredata[n].Location + '</p><p class="m-0">Operator: ' + 
