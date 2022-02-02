@@ -1,3 +1,10 @@
+// let dataReal = {};
+
+// const getRealTimeData = async () => {
+//     dataReal = await DataGetter();
+//     console.log(dataReal)
+// }
+
 (function () {
     var config = {
         apiKey: "AIzaSyCaNA5SLdRQHM-KnBKTtHf8km6go9VvlcY",
@@ -7,6 +14,7 @@
         projectId: "firsthundreddevices",
     };
     // firebase.initializeApp(config);
+    // getRealTimeData();
     let fireStore = firebase.firestore();
     var database = firebase.database();
     var deviceName;
@@ -27,13 +35,14 @@
         });
     });
 
-    const dbRefObject = firebase.database().ref();
-    dbRefObject.on('value', snap => {
-        var data = snap.val();
-        var length = Object.keys(data).length;
+    // const dbRefObject = firebase.database().ref();
+    // dbRefObject.on('value', snap => {
+    //     var data = snap.val();
+    setTimeout(function(){ 
+        var length = Object.keys(dataReal).length;
         // console.log(length);
         for (var i = 0; i < length; i++) {
-            deviceName = Object.keys(data)[i];
+            deviceName = Object.keys(dataReal)[i];
             //Populate all data in array
             if (!devicesListRealTime.includes(deviceName)) {
                 devicesListRealTime.push(deviceName);
@@ -79,5 +88,6 @@
             tbl.appendChild(tbdy);
             body.appendChild(tbl);
         }
-    });
+    }, 3000);
+    // });
 }());

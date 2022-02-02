@@ -1,4 +1,5 @@
 var DevicesFromFirebase = [];
+let dataReal = {};
 
 const CheckPermissions = async () => {
     var role = getSSData('role');
@@ -16,6 +17,7 @@ const CheckPermissions = async () => {
             projectId: "firsthundreddevices",
         };
         firebase.initializeApp(config);
+        getRealTimeData();
         let fireStore = firebase.firestore();
         await fireStore.collection("Devices").get().then((deviceID) => {
             deviceID.forEach(singleDevice => {
@@ -28,25 +30,30 @@ const CheckPermissions = async () => {
     }
 }
 
+const getRealTimeData = async () => {
+    dataReal = await DataGetter();
+    console.log(dataReal)
+}
+
 (function () {
     window.onload = CheckPermissions();    
     var database = firebase.database();
     var deviceName;
     var deviceUnderMaintainance;
     const arr = ['S.No.', 'Device ID', 'Location', 'Issue', 'Action'];
-    const dbRefObject = firebase.database().ref();
-    dbRefObject.on('value', snap => {
-        var data = snap.val();
-        var length = Object.keys(data).length;
+    // const dbRefObject = firebase.database().ref();
+    // dbRefObject.on('value', snap => {
+    //     var data = snap.val();
+        var length = Object.keys(dataReal).length;
         var body = document.getElementById('underMaintananceDevicesDiv');
         var tbl =  document.getElementById('underMaintananceDevicesTable');
        
         tbl.className = 'table table-hover';
         var tbdy = document.createElement('tbody');
         for (var i = 0; i < length; i++) {
-            deviceName = Object.keys(data)[i];
+            deviceName = Object.keys(dataReal)[i];
             var tr = document.createElement('tr');
-            deviceUnderMaintainance = data[deviceName].UnderMintanance;
+            deviceUnderMaintainance = dataReal[deviceName].UnderMintanance;
             if (deviceUnderMaintainance) {
                 if (document.getElementById(deviceName)) { }
                 else {
@@ -94,5 +101,5 @@ const CheckPermissions = async () => {
         }
         tbl.appendChild(tbdy);
         body.appendChild(tbl);
-    });
+    // });
 }());

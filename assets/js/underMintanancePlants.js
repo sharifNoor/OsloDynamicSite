@@ -1,6 +1,7 @@
 var Firestoredata = [];
 var userTaluqa;
 var userRole;
+let dataReal = {};
 
 const dataFromFirestore = async () => {
   userTaluqa = await getSSData('userTaluqa');
@@ -25,6 +26,11 @@ const dataFromFirestore = async () => {
   });
 }
 
+const getRealTimeData = async () => {
+  dataReal = await DataGetter();
+  console.log(dataReal)
+}
+
 (function () {
   var config = {
     apiKey: "AIzaSyCaNA5SLdRQHM-KnBKTtHf8km6go9VvlcY",
@@ -35,20 +41,22 @@ const dataFromFirestore = async () => {
   };
 
   firebase.initializeApp(config);
+  getRealTimeData();
   dataFromFirestore();
+  setTimeout(function(){ 
 
   // Get a reference to the database service
   var database = firebase.database();
   var deviceName;
   var div;
   var singleDeviceData;
-  const dbRefObject = firebase.database().ref();
-  dbRefObject.on('value', snap => {
-    var data = snap.val();
-    var length = Object.keys(data).length;
+  // const dbRefObject = firebase.database().ref();
+  // dbRefObject.on('value', snap => {
+  //   var data = snap.val();
+    var length = Object.keys(dataReal).length;
     for (let i = 0; i < length; i++) {
-      deviceName = Object.keys(data)[i];
-      singleDeviceData = data[deviceName];
+      deviceName = Object.keys(dataReal)[i];
+      singleDeviceData = dataReal[deviceName];
       singleDeviceUnderMintanance = singleDeviceData.UnderMintanance;
       if (singleDeviceUnderMintanance) {
         if (document.getElementById(deviceName)) {
@@ -72,5 +80,6 @@ const dataFromFirestore = async () => {
         }
       }
     }
-  });
+  }, 3000);
+  // });
 }());

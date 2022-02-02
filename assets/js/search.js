@@ -3,12 +3,13 @@ function search() {
     var database = firebase.database();
     var deviceName;
     var listOuter = document.getElementById('DevicesDropdown');
-    const dbRefObject = firebase.database().ref();
-    dbRefObject.on('value', snap => {
-        var data = snap.val();
-        var length = Object.keys(data).length;
+    // const dbRefObject = firebase.database().ref();
+    // dbRefObject.on('value', snap => {
+    //     var data = snap.val();
+    setTimeout(function(){ 
+        var length = Object.keys(dataReal).length;
         for (var i = 0; i < length; i++) {
-            deviceName = Object.keys(data)[i];
+            deviceName = Object.keys(dataReal)[i];
             if (!document.getElementById('UM' + deviceName)) {
                 var a = document.createElement('a');
                 a.innerText = deviceName;
@@ -18,7 +19,8 @@ function search() {
                 a.onclick = disp(a.id);
             }
         }
-    });
+    }, 500);
+    // });
 }
 
 const disp = id => e => {

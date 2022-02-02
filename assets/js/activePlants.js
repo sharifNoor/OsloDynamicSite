@@ -1,6 +1,7 @@
 var Firestoredata = [];
 var userTaluqa;
 var userRole;
+let dataReal = {};
 
 const dataFromFirestore = async () => {
   userTaluqa = await getSSData('userTaluqa');
@@ -28,6 +29,11 @@ const dataFromFirestore = async () => {
   });
 }
 
+const getRealTimeData = async () => {
+  dataReal = await DataGetter();
+  console.log(dataReal)
+}
+
 (function () {
   var config = {
     apiKey: "AIzaSyCaNA5SLdRQHM-KnBKTtHf8km6go9VvlcY",
@@ -36,7 +42,8 @@ const dataFromFirestore = async () => {
     storageBucket: "firsthundreddevices.appspot.com",
     projectId: "firsthundreddevices"
   };
-  console.log(window.location.search)
+  // console.log(window.location.search)
+  getRealTimeData();
   firebase.initializeApp(config);
   dataFromFirestore();
 
@@ -46,13 +53,14 @@ const dataFromFirestore = async () => {
   var div;
   var singleDeviceData;
   var singleDeviceLastUpdate;
-  const dbRefObject = firebase.database().ref();
-  dbRefObject.on('value', snap => {
-    var data = snap.val();
-    var length = Object.keys(data).length;
+  // const dbRefObject = firebase.database().ref();
+  // dbRefObject.on('value', snap => {
+  //   var data = snap.val();
+  setTimeout(function(){ 
+    var length = Object.keys(dataReal).length;
     for (let i = 0; i < length; i++) {
-      deviceName = Object.keys(data)[i];
-      singleDeviceData = data[deviceName];
+      deviceName = Object.keys(dataReal)[i];
+      singleDeviceData = dataReal[deviceName];
       singleDeviceLastUpdate = singleDeviceData.LastUpdate;
       var currentDateTime = new Date();
       var currentDateTimeInSec = currentDateTime.setSeconds(currentDateTime.getSeconds() - 3);
@@ -84,6 +92,7 @@ const dataFromFirestore = async () => {
         }
       }
     }
-  });
+  }, 3000);
+  // });
 
 }());
