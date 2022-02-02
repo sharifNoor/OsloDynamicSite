@@ -54,19 +54,23 @@ const getRealTimeData = async () => {
   // Get a reference to the database service
   var database = firebase.database();
   var deviceNamee;
-  var reload = false;
   var div;
   var singleDeviceData;
   var singleDeviceLastUpdate;
   const dbRefObject = firebase.database().ref();
-  dbRefObject.on('value', snap => {
-    var data = snap.val();
-    if (data === null) {
-      reload = true;
-    }
-    else {
+  // dbRefObject.on('value', snap => {
+  //   var data = snap.val();
+  //   if (data === null) {
+  //     // location.reload();
+      
+  //   }
+  //   else {
+    setTimeout(function(){ 
       var length = Object.keys(dataReal).length;
-      console.log(length)
+      if(length === 0){
+        alert('Request Failed!');
+        location.reload();
+      }
       for (let i = 0; i < length; i++) {
         deviceNamee = Object.keys(dataReal)[i];
         singleDeviceData = dataReal[deviceNamee];
@@ -115,8 +119,9 @@ const getRealTimeData = async () => {
           }
         }
       }
-    }
-  });
+    }, 3000);
+    // }
+  // });
 
 }());
 
