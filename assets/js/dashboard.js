@@ -21,7 +21,6 @@ var AreaLocation = [];
 
 const getRealTimeData = async () => {
   dataReal = await DataGetter();
-  console.log(dataReal)
 }
 
 const getLocations = async () => {
