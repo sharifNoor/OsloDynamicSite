@@ -122,7 +122,7 @@ function getDataFromRealtime() {
         var currentDateTime = new Date();
         var Month = singleDeviceLastUpdate.split("-");
         if (parseInt(Month[1]) !== currentDateTime.getMonth() + 1){
-          MonthlyFlowRateChange(deviceName);
+          MonthlyFlowRateChange(deviceName, singleDeviceData.TotalLitresFromFloatSwitch);
         }
         var currentDateTimeInSec = currentDateTime.setSeconds(currentDateTime.getSeconds() - 3);
         var singleDeviceLastUpdateInSec = Date.parse(singleDeviceLastUpdate) - 18000000;
