@@ -3,9 +3,6 @@ function search() {
     var database = firebase.database();
     var deviceName;
     var listOuter = document.getElementById('DevicesDropdown');
-    // const dbRefObject = firebase.database().ref();
-    // dbRefObject.on('value', snap => {
-    //     var data = snap.val();
     setTimeout(function(){ 
         var length = Object.keys(dataReal).length;
         for (var i = 0; i < length; i++) {
@@ -15,7 +12,6 @@ function search() {
                 a.innerText = deviceName;
                 a.id = deviceName;
                 listOuter.appendChild(a);
-                console.log('deviceName')
                 a.onclick = disp(a.id);
             }
         }
@@ -34,16 +30,33 @@ const disp = id => e => {
 
 function submit(id) {
     var modal = document.getElementById("addDeviceModal");
-    firebase.database().ref(id).update({
-        UnderMintanance: true
-    }, (error) => {
-        if (error) {
-            console.log(error);
-        }
-        else {
-            updateIssue(id);
-        }
-    });
+    var deviceName = id.split("_");
+    if (deviceName[1] > 0 && deviceName[1] < 101){
+        var dbRefObject = firebase.database(database[0]).ref(id);
+        dbRefObject.update({
+            UnderMintanance: true
+        }, (error) => {
+            if (error) {
+                console.log(error);
+            }
+            else {
+                updateIssue(id);
+            }
+        });
+    }
+    else if (deviceName[1] > 100 && deviceName[1] < 201){
+        var dbRefObject = firebase.database(database[1]).ref(id);
+        dbRefObject.update({
+            UnderMintanance: true
+        }, (error) => {
+            if (error) {
+                console.log(error);
+            }
+            else {
+                updateIssue(id);
+            }
+        });
+    }
 }
 
 const updateIssue = async (id) => {

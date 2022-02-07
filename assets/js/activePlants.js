@@ -65,7 +65,7 @@ const getRealTimeData = async () => {
       var currentDateTime = new Date();
       var currentDateTimeInSec = currentDateTime.setSeconds(currentDateTime.getSeconds() - 3);
       var singleDeviceLastUpdateInSec = Date.parse(singleDeviceLastUpdate) - 18000000; // Converting UTC GMT time to PST local time by Subtracting 18,000,000 as PST = GMT +5
-      if (singleDeviceLastUpdateInSec > currentDateTimeInSec - 90) {
+      if (singleDeviceLastUpdateInSec > currentDateTimeInSec - 90000) {
         if (document.getElementById(deviceName)) {
           for (var n = 0; n < Firestoredata.length; n++) {
             if (Firestoredata[n].DeviceID === deviceName) {

@@ -12,21 +12,22 @@ function showDetail() {
 
   if (DeviceID !== 'Select Device') {
     const dbRefObject = firebase.database().ref();
-    dbRefObject.on('value', snap => {
-      data = snap.val();
-      singleDeviceLastUpdate = data[DeviceID].LastUpdate;
+    setTimeout(function(){ 
+    // dbRefObject.on('value', snap => {
+    //   data = snap.val();
+      singleDeviceLastUpdate = dataReal[DeviceID].LastUpdate;
       var currentDateTime = new Date();
       var currentDateTimeInSec = currentDateTime.setSeconds(currentDateTime.getSeconds() - 3);
       var singleDeviceLastUpdateInSec = Date.parse(singleDeviceLastUpdate) - 18000000; // Converting UTC GMT time to PST local time by Subtracting 18,000,000 as PST = GMT +5
-      if (singleDeviceLastUpdateInSec > currentDateTimeInSec - 90) {
-        CurrentFlowRate.innerText = data[DeviceID].FlowRateFromFloatSwitch;
-        TotalFlow.innerText = data[DeviceID].TotalLitresFromFloatSwitch;
+      if (singleDeviceLastUpdateInSec > currentDateTimeInSec - 90000) {
+        CurrentFlowRate.innerText = dataReal[DeviceID].FlowRateFromFloatSwitch;
+        TotalFlow.innerText = dataReal[DeviceID].TotalLitresFromFloatSwitch;
         DeviceMonitoringDiv.style.display = 'flex';
         DeviceInactive.style.display = 'none';
       }
       else {
         CurrentFlowRate.innerText = 0;
-        TotalFlow.innerText = data[DeviceID].TotalLitresFromFloatSwitch;
+        TotalFlow.innerText = dataReal[DeviceID].TotalLitresFromFloatSwitch;
         DeviceMonitoringDiv.style.display = 'flex';
         DeviceInactive.style.display = 'block';
       }

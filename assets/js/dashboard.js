@@ -2,6 +2,7 @@ var ddlData = [];
 var dnlData = [];
 var role;
 var userTaluqa;
+let dataReal = {};
 
 var config = {
   apiKey: "AIzaSyCaNA5SLdRQHM-KnBKTtHf8km6go9VvlcY",
@@ -10,12 +11,18 @@ var config = {
   storageBucket: "firsthundreddevices.appspot.com",
   projectId: "firsthundreddevices"
 };
+
 firebase.initializeApp(config);
 let fireStore = firebase.firestore();
 var database = firebase.database();
 
 var Taluqa = [];
 var AreaLocation = [];
+
+const getRealTimeData = async () => {
+  dataReal = await DataGetter();
+  console.log(dataReal)
+}
 
 const getLocations = async () => {
   const email = await getSSData('email');
@@ -89,6 +96,7 @@ const getLocations = async () => {
       }
     }
   });
+  getRealTimeData();
   getDataFromRealtime();
 };
 window.onload = getLocations;
@@ -101,18 +109,21 @@ var singleDeviceData;
 var singleDeviceLastUpdate;
 const dbRefObject = firebase.database().ref();
 function getDataFromRealtime() {
-  dbRefObject.on('value', snap => {
-    var data = snap.val();
-    var NoOfDevices = Object.keys(data).length;
+  setTimeout(function(){ 
+    var NoOfDevices = Object.keys(dataReal).length;
     var activeDevices = 0;
     var totalUnderMaintananceDevices = 0;
     for (let i = 0; i < NoOfDevices; i++) {
-      deviceName = Object.keys(data)[i];
+      deviceName = Object.keys(dataReal)[i];
       if (dnlData.includes(deviceName)) {
-        singleDeviceData = data[deviceName];
+        singleDeviceData = dataReal[deviceName];
         singleDeviceLastUpdate = singleDeviceData.LastUpdate;
         var underMaintananceDevice = singleDeviceData.UnderMintanance;
         var currentDateTime = new Date();
+        var Month = singleDeviceLastUpdate.split("-");
+        if (parseInt(Month[1]) !== currentDateTime.getMonth() + 1){
+          MonthlyFlowRateChange(deviceName);
+        }
         var currentDateTimeInSec = currentDateTime.setSeconds(currentDateTime.getSeconds() - 3);
         var singleDeviceLastUpdateInSec = Date.parse(singleDeviceLastUpdate) - 18000000;
         if (singleDeviceLastUpdateInSec > currentDateTimeInSec - 90000) {
@@ -125,9 +136,8 @@ function getDataFromRealtime() {
         }
         TotalNonActivePlants.innerText = ddlData.length - activeDevices - totalUnderMaintananceDevices;
       }
-      // }
     }
-  });
+  }, 3000);
 }
 //==============================================================================================================
 
@@ -179,4 +189,3 @@ function populateDevices(_Area) {
     select.appendChild(el);
   }
 }
-

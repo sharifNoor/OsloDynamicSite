@@ -44,6 +44,7 @@ const getRealTimeData = async () => {
     // const dbRefObject = firebase.database().ref();
     // dbRefObject.on('value', snap => {
     //     var data = snap.val();
+    setTimeout(function(){ 
         var length = Object.keys(dataReal).length;
         var body = document.getElementById('underMaintananceDevicesDiv');
         var tbl =  document.getElementById('underMaintananceDevicesTable');
@@ -81,7 +82,6 @@ const getRealTimeData = async () => {
                             for (var l = 0; l < DevicesFromFirebase.length; l++) {
                                 if (DevicesFromFirebase[l].DeviceID === deviceName){
                                     td.innerText = DevicesFromFirebase[l].Issue;
-                                    
                                 }
                             }
                         }
@@ -102,4 +102,5 @@ const getRealTimeData = async () => {
         tbl.appendChild(tbdy);
         body.appendChild(tbl);
     // });
+    }, 3000);
 }());
