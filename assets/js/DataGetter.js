@@ -16,7 +16,6 @@ const DataGetter = async () => {
         projectId: "secondhundreddevices",
     };
     var config = [config1, config2]
-    var name = ['default', 'App1']
     for (var i=0; i<2; i++) {
         database[i] = firebase.initializeApp(config[i], 'others' + i);
         var dbRefObject = firebase.database(database[i]).ref();
@@ -29,7 +28,5 @@ const DataGetter = async () => {
             }
         });
     }
-
-    // if ()
     return RealTimeData;
 }
