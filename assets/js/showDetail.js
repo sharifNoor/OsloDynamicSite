@@ -1,20 +1,14 @@
 function showDetail() {
-  // var ddlTaluqa = document.getElementById('ddlTaluqa');
-  // var ddlArea = document.getElementById('ddlArea');
   var ddlDeviceName = document.getElementById('ddlDeviceName');
   var CurrentFlowRate = document.getElementById('TotalCurrentFlowRate');
   var TotalFlow = document.getElementById('TotalFlow');
   var DeviceMonitoringDiv = document.getElementById('DeviceMonitoringDiv');
   var DeviceInactive = document.getElementById('DeviceInactive');
   var DeviceID = ddlDeviceName.value;
-  var data;
   var singleDeviceLastUpdate;
 
   if (DeviceID !== 'Select Device') {
-    const dbRefObject = firebase.database().ref();
-    setTimeout(function(){ 
-    // dbRefObject.on('value', snap => {
-    //   data = snap.val();
+    setTimeout(function(){
       singleDeviceLastUpdate = dataReal[DeviceID].LastUpdate;
       var currentDateTime = new Date();
       var currentDateTimeInSec = currentDateTime.setSeconds(currentDateTime.getSeconds() - 3);
