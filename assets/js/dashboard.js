@@ -143,8 +143,6 @@ function getDataFromRealtime() {
 }
 //==============================================================================================================
 
-
-
 function populateArea(_Taluqa) {
   //Filter Data list by Taluqa
   const filteredArea = ddlData.filter(ddlData => ddlData.Taluqa == _Taluqa);
