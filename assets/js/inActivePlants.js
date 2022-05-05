@@ -35,7 +35,7 @@ const dataFromFirestore = async () => {
 
 const getRealTimeData = async () => {
   dataReal = await DataGetter();
-  console.log(dataReal)
+  // console.log(dataReal)
 }
 
 (function () {
