@@ -23,6 +23,7 @@
     var devicesListRealTime = [];
     var devicesListFirestore = [];
     var fsDeviceName;
+    let x = 1;
 
     fireStore.collection("Devices").get().then((deviceID) => {
         deviceID.forEach(singleDevice => {
@@ -64,7 +65,8 @@
                         var td = document.createElement('td');
                         td.appendChild(document.createTextNode('\u0020'));
                         if (j === 0) {
-                            td.innerText = i + 1;
+                            td.innerText = x;
+                            x = x + 1;
 							td.align='center';
                         }
                         else if (j === 1) {
